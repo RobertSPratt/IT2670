@@ -1,0 +1,8 @@
+#+TITLE: Week 1 - Vocabulary
+
+- /Central Processing Unit (CPU)/ - processes instructions from the motherboard in a four step cycle
+- /compiler/ - takes the program and translates it into machine code
+- /compiling/ - translating the program into machine code
+- /debugging/ - finding a problem within the code
+- /interpreter/ - translates a program one statement at a time
+- /machine code/ - a series of instructions scheduled by the operating system and fetched by the CPU

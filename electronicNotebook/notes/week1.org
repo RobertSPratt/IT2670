@@ -1,0 +1,49 @@
+#+TITLE: Week 1
+
+* IDE's
+** What is an IDE and What is it Used For?
+- like a toolbelt that consilades many tools into one
+- enables the deployment and management of multiple tools at once
+  + text editors
+  + code libraries
+  + compilers
+  + test platforms
+- can include programmable editors
+  + can be language-specific or multi-language
+**  What is an IDE?
+- Integrated Development Environment used to develop games, software, and hardware that offers /integration/ from /debugging/, all the way to /compiling/
+* Compilers
+** How does a compiler, interpreter, and CPU work?
+- a /compiler/ takes the program and translates it into computer source code, called /machine code/
+  + more substantial programs, such as games and operating systems, are written in compiled languages for the best performance possible.
+- an /interpreter/ translates one program statement at a time
+  + interpreters are best for programs that require frequent changes
+- a /Central Processing Unit (CPU)/ processes instructions in a four step cycle
+  1. it fetches the instruction
+  2. it decodes the instruction
+  3. processes the instruction
+  4. stores the result in memory and prepares for the next cycle
+- we measure CPU speed in clock cycles, but that is not the same as CPU cycles, which is the true measurement of CPU speed
+- /machine code/ is a series of instructions scheduled by the operating system and fetched by the CPU during the CPU cycle
+* Debugging
+** How to Debug Your Code
+- print statements
+  + an easy way to see what is going on in the program
+  + available in pretty much every programming language, often with useful formatting options
+- error handling
+  + use try-catch blocks
+  + especially useful for errors that don't happen very often
+  + can be used with logging
+- commenting things out
+  + can be helpful to comment out an entire block where a bug exists and add it back in part at a time to locate it
+- debugging tools
+  + often provided by the IDE, text editor, or browser
+  + allows for the addition of breaks to pause the code and allow the developer to walk line-by-line through the code
+  + different environments have different debugging tools, but they often work in a similar way
+- tests
+  + a more passive way to spot and work with bugs
+  + many times, pre-existing tests can catch new bugs
+- asking other developers
+  + when all else fails, it helps to ask others for help
+  + getting a second pair of eyes can help when you get too to the code base
+  + especially on a big project or on a team, it is often better to get another set of eyes than to waste errors searching for a bug
