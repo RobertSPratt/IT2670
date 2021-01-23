@@ -1,0 +1,5 @@
+#+TITLE: Meet your Peers
+
+** Introduction
+
+Hello everyone, I'm Robert. Two interesting things about me are that I love languages (currently learning Romanian, German, and Hungarian, with skill in the same order) and that, for work, I edit and help write rulebooks for board games. I am taking this course because my interests in programming (Operating Systems, drivers, etc) all require C/C++. As far as expectations, I hope to become more familiar with C and learning to use C++ to apply object-oriented methodologies to the language.
