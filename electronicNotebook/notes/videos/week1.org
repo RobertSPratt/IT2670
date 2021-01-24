@@ -1,4 +1,4 @@
-#+TITLE: Week 1 Videos
+#+TITLE: Week 1
 
 * IDE's
 ** What is an IDE and What is it Used For?

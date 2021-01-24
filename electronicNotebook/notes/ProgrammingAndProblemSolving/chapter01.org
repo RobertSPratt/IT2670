@@ -1,0 +1,98 @@
+#+TITLE: Chapter 01 - Orview of Programming and Problem Solving
+
+* Overview of Programming
+** How Do We Write a Program?
+- to write a sequence of instructions for a computer to follow, we muts go through a two-phase process:
+  1. Problem-Solving Phase
+     a. analysis and specification - understand (define) the problem and what the solution must do
+     b. general solution (algorithm) - develop a logical sequence of steps that solves the problem
+     c. verify - follow the steps exactly to see if the solution really does solve the problem
+  2. Implementation Phase
+     a. concrete solution (program) - translate the algorithm into a programming language
+     b. test - have the computer follow the instructions, then manually check the results
+        a. if errors are found, analyze the program and the algorithm to determine the source of the errors
+        b. make corrections
+  3. Maintenance Phase (after the program is written)
+     a. use - use the program
+     b. maintain - modify the program ot meet changing requirements or to correct any errors that show up in using it
+- the above series of stages are known as the /waterfall model/ of software development
+  + the /spiral model/ involves developing an initial specification of the problem, programming a portion of the solutoin, having the client evaluate the result, and then revising the specification and repeating the process until the client is satisfied
+** What Is an Algorithm
+- all programs are algorithms
+  + a program is simply an algorithm that has been written for a computer
+- an algorithm must terminate in a finite amount of time for all possible conditions
+** What Is a Programming Language?
+- a programming language is a simplified form of English (with math symbols) that adheres to a strict set of grammatical rules
+- translating an algorithm into a programming language is called /coding/ the algorithm
+  + the product of the translation, the /program/, is tested by running (/executing/) it on the computer
+- the programmer must /debug/ the program if it fails to produce the desired results
+- the combination of coding and testing an algorithm is called /implementation/
+- each time that a program is modified, the problem-solving and implementation phases must be repeated fo those aspects of the program that change
+- the maintenance phase of the programming process accounts for the majority of the effort spent on most programs
+- in addition to solving the problem, implementing the algorithm, and maintaining the program, /documentation/ is an important part of the process
+  + documentation includes written explanations of the problem being solved and the organization of the solution, comments embedded within the program itself, and user manuals that describe how to use the program
+- /information/ is any knowledge that can be communicated, including abstract ideas and concepts
+- /data/ is information in a form the computer can use
+* How Does a Computer Run a Program?
+- all data in a computer is stored and used in binary codes
+  + instructions and data are stored together in the computer's memory
+- /machine language/ (/machine code/) is the language, made up of binary-coded instructions, that is used directly by the computer
+- one of the fundamental discoveries in computer science was that, because a computer can process its own instructions as a form of data, it is possible to write a program to translate the assembly language instructions into machine language
+  + this type of program is called an assembler
+  + this still forces the programmer to thinly in terms of individual machine instructions
+- a program called a /compiler/ translated programs written in certain high-level languages into machine language
+  + this is possible because most high-level languages are standardized, meaning that an official description of the language exists
+- a program in a high-level language is called a /source program/
+  + to the compiler, a source program is just input data
+  + the translated source program is called an /object program/
+- a benefit of using standardized high-level languages is that they allow for the writing of /portable/ (or /machine-independent/) code
+- some programming languages (LISP, Prolog, many versions of BASIC) are translated by an /interpreter/ instead of by a compiler
+  + an intrepreter translateds /and executes/ each instruction in the source program, one instruction at a time while a compiler translates the entire source program before it is executed
+** What Kinds of Instructions Can Be Written in a Programming Language?
+- the instructions in a programming language reflect the operations a computer can perform:
+  + transfe data from one place to another
+  + capture data from an input device and output data to an output device
+  + store data into and retrieve data from its memory and secondary storage
+  + compare two data values for equality or inequality
+  + perform arithmetic operations very quickly
+- programming languages require that certain /control structures/ be used to express algorithms as programs
+- there are four basic ways of structuring statements/instructions in most programming languages: sequentially, conditionally, repetitively, and with subprograms
+- /sequences/ are a series of statements that are executed one after another
+- /selection/ (the conditional control structure) executes different statements depending on certain conditions
+- /repetitive/ control structures, called /loops/, repeat statements while certain conditions are met
+- /subprograms/ allow the structure of a program to be broken into smaller units
+** What Is Software Maintenance?
+- in the life cycle of a program, the maintenance phase accounts for the majority of a typical program's existance
+* What's Inside the Computer?
+- most computers have six basic components: the memory unit, the arithmetic/logic unit, the control unit, input devices, output devices, and auxiliary storage devices
+- the /memory unit/ is an ordered sequence of storage cells, each capable of holding a piece of data
+  + these storage cells are often referred to as /memory cells/ or /memory locations/
+  + the memory unit holds data and instructions
+- the /central processing unit (CPU)/ is the part of the computer tht follows instructions
+  + it has two components:
+    1. the /arithmetic/logic unit (ALU)/ performs arithcetic operations and logical operations
+    2. the /control unit/ controls the actions of the other components so that program instructions are executed in the correct order
+- /input/output (I/O) devices/ accept data to be processed (input) and present data values that have been processed (output)
+- for the most part, computers simply move and combine data in memory
+- when a program is executing, the computer proceeds through a series of steps called the /fetch-execute cycle/:
+  1. the control unit retrieves (/fetches/) the next coded instruction from memory
+  2. the instruction is translated into control signals
+  3. the control signals tell the appropriate unit (arithmetic/logic unit, memory, I/O device) to perform (/execute/) the instruction
+  4. the sequence repeats from Step 1
+- an /auxiliary storage device/, or /secondary storage device/, holds coded data for the computer until it is needed
+  + auxiliary storage devices are typically disk drives and flash memory
+    - /disk drives/ use thin disks made out of magnetic material and a read/write head that contains an electromagnet that travels across the spinning disk to retrieve or record data in the form of magnetized spots on the surface of the disk
+    - /flash memory/ is one or more silicon chips containing specialized electronic switches that can be locked into either the on or off state that retains its state when the power is turned off, unlike normal computer memory
+* Ethics and Responsibilities in the Computing Profession
+** Software Piracy
+- /sofware piracy/ is the unauthorized copying of software for either personal use or use by others
+- software piracy isn't restricted to duplicated copyrighted software
+  + it includes plagiarism of all or part of code that belongs to anyone else
+  + code copied with permission should be acknowledged with a citation in the comments
+** Use of Computer Resources
+- a /virus/ is a program that replicates itself, with the goal of spreading to other computers
+- a /worm/ exploits gaps in a computers security and hijacks it to search the Internet for other computers with the same gaps
+- when a computer is taken over and used for some other purpose, it is called a /zombie/
+- harmful programs are collectively known as /malware/
+** Software Engineering
+-

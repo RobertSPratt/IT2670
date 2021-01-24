@@ -1,8 +1,40 @@
 #+TITLE: Week 1 - Vocabulary
 
-- /Central Processing Unit (CPU)/ - processes instructions from the motherboard in a four step cycle
+- /algorithm/ - a step-by-step procedure for solving a problem in a finite amount of time
+- /arithmetic/logic unit (ALU)/ - the component of the central processing unit that performs arithmetic and logical operations
+- /assembly language/ - a low-level programming language in which a mnemonic is used to represent each of the machine language instructions for a particular computer
+- /assembler/ - a program that translates an assembly language program into machine code
+- /auxiliary storage device/ - a device that stores data in encoded form outside the computer's main memory
+- /Central Processing Unit (CPU)/ - processes instructions from the motherboard in a four step cycle; made up of the arithmetic/logic unit and the control unit
+- /clock/ - an electrical circuit that sends out a train of pulses to coodinate the actions of the computer's hardware components; its speed is measured in Hertz (cycles per second)
+- /coding the algorithm/ - translating an algorithm into a programming language
 - /compiler/ - takes the program and translates it into machine code
 - /compiling/ - translating the program into machine code
+- /computer/ - a programmable electronic device that can store, retrieve, and process data
+- /control unit/ - the component of the central processing unit that controls the actions of the other components so that instructions (the program) are executed in the correct sequence
+- /data/ - information in the form a computer can use
 - /debugging/ - finding a problem within the code
+- /documentation/ - the written text and comments that make a program oasier for others to understand, use, and modify
+- /executing/ - running a program on a computer
+- /hardware/ - the physical components of a computer
+- /implementation/ - the combination of coding and testing an algorithm
+- /infinite loop/ - a never-ending situation in an algorithm
+- /information/ - any knowledge that can be communicated
+- /input/output (I/O) devices/ - the parts of the computer that accept data to be processed (input) and present the results of that processing (output)
+- /interactive system/ A system that allows direct communication between user and computer
 - /interpreter/ - translates a program one statement at a time
 - /machine code/ - a series of instructions scheduled by the operating system and fetched by the CPU
+- /machine language/ - (also called /machine code/) the language, made up of binarey coded instructions, that is used directly by the computer
+- /malware/ - software written with malicious purposes in mind
+- /memory unit/ - internal data storage in a computer
+- /object program/ - the machine language version of a source program
+- /operating system/ - a set of programs that manages all of the computer's resources
+- /peripheral device/ - an input, output, or auxiliary storage device attached to a computer
+- /programming language/ - a set of rules, symbols, and special words used to construct a computer program
+- /software/ - computer programs; the set of all programs available on a computer
+- /software piracy/ - the unauthorized copying of software for either personal use or use by others
+- /source program/ - a program written in a high-level programming language
+- /user/computer interface/ - a connecting link that translates between the computer's internal representation of data and representations that humans are able to work with
+- /virus/ - malicious code that replicates and spreads to other computers through email messages and file sharing, without authorization, and possibly with the intent of doing harm
+- /worm/ - malicious code that replicates and spreads to other computers through security gaps in the computer's operating system, without authorization, and possibly with the intent of doing harm
+- /zombie/ - a computer that has been taken over for unauthorized use, such as sending spam email
