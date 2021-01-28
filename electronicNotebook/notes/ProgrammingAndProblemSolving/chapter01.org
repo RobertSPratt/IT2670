@@ -95,4 +95,15 @@
 - when a computer is taken over and used for some other purpose, it is called a /zombie/
 - harmful programs are collectively known as /malware/
 ** Software Engineering
--
+- the reliability of a computer depends on the care that is taken in writing its software
+- /software engineering/ is the process that is used to develop correct software
+  + programmers have a responsibility to develop software that is free from errors
+* Problem-Solving Techniques
+** Background Information - The Origins of C++
+- Dennis Ritchie created the C programming language at AT&T Bell Labs in the late 1960s/early 1970s while designing the UNIX operating system
+- it was made to escape the difficulties of programming in assembly language
+  + it das invenced as a system programming language and combines the low-level features of an assembly language with the ease of use and portability of a high-level language
+- UNIX was reprogrammed so that approximately 90% was written in C and the remainder in assembly language
+- the name C comes from the evolution from the BCPL (Basic Combined Programming Language) to B (from which Ritchie adopted features) to C
+- in 1985, Bjarne stroustrup (Bell Labs) invented the C++ programming language to add features for data abstraction and object-oriented programming to the C language
+  + the language was named using the increment operation, instead of D

@@ -1,21 +1,29 @@
 #+TITLE: Week 1 - Vocabulary
 
 - /algorithm/ - a step-by-step procedure for solving a problem in a finite amount of time
+- /argument/ - a list of values provided to the called function
 - /arithmetic/logic unit (ALU)/ - the component of the central processing unit that performs arithmetic and logical operations
 - /assembly language/ - a low-level programming language in which a mnemonic is used to represent each of the machine language instructions for a particular computer
 - /assembler/ - a program that translates an assembly language program into machine code
 - /auxiliary storage device/ - a device that stores data in encoded form outside the computer's main memory
 - /Central Processing Unit (CPU)/ - processes instructions from the motherboard in a four step cycle; made up of the arithmetic/logic unit and the control unit
+- /character string/ - (/string constant/) a sequence of characters in double quotes
 - /clock/ - an electrical circuit that sends out a train of pulses to coodinate the actions of the computer's hardware components; its speed is measured in Hertz (cycles per second)
 - /coding the algorithm/ - translating an algorithm into a programming language
+- /comments/ - a section of text that briefly explains what a program or section of code does
 - /compiler/ - takes the program and translates it into machine code
 - /compiling/ - translating the program into machine code
 - /computer/ - a programmable electronic device that can store, retrieve, and process data
 - /control unit/ - the component of the central processing unit that controls the actions of the other components so that instructions (the program) are executed in the correct sequence
 - /data/ - information in the form a computer can use
 - /debugging/ - finding a problem within the code
+- /declaration/ - announcing the properties of a variable or set of variables
 - /documentation/ - the written text and comments that make a program oasier for others to understand, use, and modify
+- /escape sequence/ - a general and extensible mechanism for representing hard-to-type or invisible characters
 - /executing/ - running a program on a computer
+- /expression/ - the combination of operators and operands
+- /for statement/ - a loop; a generalization of the `while`
+- /function/ - contains statements that specify the computing operations to be done
 - /hardware/ - the physical components of a computer
 - /implementation/ - the combination of coding and testing an algorithm
 - /infinite loop/ - a never-ending situation in an algorithm
@@ -34,7 +42,9 @@
 - /software/ - computer programs; the set of all programs available on a computer
 - /software piracy/ - the unauthorized copying of software for either personal use or use by others
 - /source program/ - a program written in a high-level programming language
+- /symbolic name/ - (/symbolic constant/) a particular occurance of a /name/ that represents a particular string of characters
 - /user/computer interface/ - a connecting link that translates between the computer's internal representation of data and representations that humans are able to work with
+- /variable/ - stores values used during computation
 - /virus/ - malicious code that replicates and spreads to other computers through email messages and file sharing, without authorization, and possibly with the intent of doing harm
 - /worm/ - malicious code that replicates and spreads to other computers through security gaps in the computer's operating system, without authorization, and possibly with the intent of doing harm
 - /zombie/ - a computer that has been taken over for unauthorized use, such as sending spam email
