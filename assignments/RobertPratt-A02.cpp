@@ -17,8 +17,11 @@ int main() {
   min = atof(input.c_str());
 
   // put code here (I completed the assignment with 3 lines of code)
-  cout << "You entered " << scientific << min << endl;
-  cout << (int)min << " minutes is approximately " << (int)(min / minutesInYear) << " years and " << (int)(((min / minutesInYear) - (int)(min / minutesInYear)) * 365) << " days";
+  int years = min / minutesInYear;
+  int days = ((min / minutesInYear) - years) * 365;
+
+  printf("You entered %.5e \n%.0f is approximately %i years and %i days",
+         min, min, years, days);
 
   return 0;
 }
