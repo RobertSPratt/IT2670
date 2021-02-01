@@ -1,0 +1,13 @@
+#+TITLE: Week 3
+
+* C++ Essential Training - Statements and expressions Chapter 7
+- a /statement/ is a unit a code
+  + it does not have to be all on the same line
+- a statement is always terminated with a semicolon `;`
+- an /expression/ is anything that returns a value
+* Java Tutorial 6 - Statements, expressions, and blocks
+- /declaration statement/ - a statement that declares a variable
+- /assignment statement/ - a statement that assigns a value to a variable
+- /method invocation statement/ - a statement that calls a method
+- /object creation statement/ - a statement that creates an instance of an object
+- a /block/ is anything inside of a set of curly braces (`{}`)

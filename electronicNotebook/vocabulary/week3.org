@@ -1,0 +1,20 @@
+#+TITLE: Week 3 - Vocabulary
+
+- /argument/ - the value sent in a function call; also called an argument parameter
+- /argument list/ - a mechanism by which functions communicate with one another
+- /assignment statement/ - a statement that assigns a value to a variable
+- /block/ - anything inside of a set of curly braces (`{}`)
+- /binary operator/ - an operator that has two operands
+- /declaration statement/ - a statement that declares a variable
+- /function call/ - the mechanism that transfers control to a function; also called a function invocation
+- /integer overflow/ - when the computer tries to compute a value larger than the machine's maximum value
+- /library functions/ - prewritten functions that are part of every C++ system and are available for use by any program
+- /method invocation statement/ - a statement that calls a method
+- /mixed type expression/ - an expression that contains operands of different data types; also called mixed mode expression
+- /object creation statement/ - a statement that creates an instance of an object
+- /standard library/ - a large collection of prewritten functions, data types, and other items that any C++ programmer may use
+- /type coercion/ - the implicit (automatic) conversion of a value from one data type to another
+- /type casting/ - the explicit conversion of a value from one data type to another; also, called type conversion
+- /unary operator/ - an operator that has just one operand
+- /value-returning function/ - a function that returns a single value to its caller and is invoked from within an expression
+- /void function/ - a function that does not return a function value to its caller and is invoked as a separate statement; also called procedure

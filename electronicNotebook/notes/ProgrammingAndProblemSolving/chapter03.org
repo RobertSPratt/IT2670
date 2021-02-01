@@ -1,0 +1,210 @@
+#+TITLE: Chapter 03 - Numeric Types, Expressions, and Output
+- /library functions/ - prewritten functions that are part of every C++ system and are available for use by any program
+* Overview of C++ Data Types
+| Type           | Size in Bytes+ |             Minimum Value+ | Maximum Value+              |
+|----------------+----------------+----------------------------+-----------------------------|
+| char           |              1 |                       -128 | 127                         |
+| unsigned char  |              1 |                          0 | 255                         |
+| short          |              2 |                    -32,768 | 32,757                      |
+| unsigned short |              2 |                          0 | 65,535                      |
+| int            |              4 |             -2,147,483,648 | +2,147,483,647              |
+| unsigned int   |              4 |                          0 | +4,294,967,295              |
+| long           |              8 | -9,223,372,036,854,775,808 | +9,223,372,036,864,775,807  |
+| unsigned long  |              8 |                          0 | +18,446,744,073,709,551,615 |
++ These values are for one particlar machine. Your machine's values may be different
+* Numeric Data Types
+** Integral Types
+- the data types `char`, `short`, `int`, and `long` are known as intergral types (or integer types) because they refer to integer values
+  + they refer to whole numbers with no fractional part
+- in C++, the simplest form of integer value is a sequence of one or more digits
+  + commas are not allowed
+- in most cases, a minus sign preceding an integer value makes the integer negative
+  + the exception is when you explicitly add the reserved word `unsigned` to the data type
+- an `unsigned` integer value is assumed to be only positive or zero
+  + unsigned types are used primarily in specialized situations
+- the data types `char`, `short`, `int`, and `long` are intended to represent different sizes of integers, from smaller (fewer bits) to larger (more bits)
+  + the sizes are machine dependent; they may vary from machine to machine
+- `int` is by far the most common data type for manipulating integer data
+- an /integer overflow/ occurs when the computer tries to compute a value larger than the machine's maximum value
+  + some machines display an error message when overflow occurs, but others won't
+- one caution about integer values in C++: a literal constant beginning with a zero is taken to bea an octal (base-8) number instead of a decimal (base-10) number
+** Floating-Point Types
+- floating-point types (floating types) are used to represent real numbers
+  + they have an integer part and a fractional part, with a decimal in between
+  + either the integral part or the fractional part, but not both, may be missing
+- the floating point types are `float`, `double` (meaning double precision), and `long double`
+- most programs don't need the `double` and `long double` types
+  + the `float` type usually provides sufficient precision and range of values for floating-point numbers
+    - most personal computers provide `float` values with a precision of six or seven significant digits and a maximum value of about 3.4E+38
+- there is one more thing you should know about floating-point numbers: computers cannot always represent them exactly
+  + in most cases, slight inaccuracies in the rightmost fractional digits are to be expected and are not te result of programmer error
+| Type        | Sizke in Bytes+ | Minimum Positive Value+ | Maximum Positive Value+ |
+|-------------+-----------------+-------------------------+-------------------------|
+| float       |               4 |                 3.4E-38 |                  3.4+38 |
+| double      |               8 |                1.7E-308 |                1.7E+308 |
+| long double |              10 |               3.4E-4932 |               1.1E+4932 |
++ These values are for one particular machine. Your machine's values may be different
+* Declarations for Numeric Types
+** Named Constant Declarations
+- in the case of named constant declarations, the literal values in the declarations are numeric instead of being characters in single or double quotes
+  + although character and string literals are put in quotes, literal integers and floating-point numbers are not
+    - this is because there is no chance of confusing them with identifiers
+** Variable Declarations
+- numeric varabiles are declared the same way in which `char` and `string` variables are declared
+  + the only difference is that numeric types are used
+* Simple Arithmetic Expressions
+** Arithmetic Operators
+- the operators allowed in an expression depend on the data types of the constants and variables in the expression
+- the /arithmetic operators/ are:
+  + Unary plus `+`
+  + Unary minus `-`
+  + Addition `+`
+  + Subtraction `-`
+  + Multiplication `*`
+  + Floating-point division (floating-point result) `/`
+  + Integer division (no fractional part) `/`
+  + Modulus (remainder from integer division) `%`
+- /unary operator/ - an operator that has just one operand
+- /binary operator/ - an operator that has two operands
+- prgrammers rarely use the unary plus operator
+  + without any sign, a numeric constant is assumed to be positive
+- `7 / 0` and `7 % 0` both produce errors
+  + `7.0 / 0.0` produces a special infinity value that is displayed as `inf` when output
+** Increment and Decrement Operators
+- C++ provides /increment/ (`++`) and /decrement/ (`--`) operators
+  + these unary operators take a single variable name as an operand
+  + for integer and floating-point operands, the effect is to add 1 to (or subtract 1 from) the operand
+- the increment and decrement operators can be either /prefix/ or /postfix/ operators
+  + C++ allows the use of `++` and `--` in the middle of larger expressions
+* Compound Arithmetic Expressions
+** Precedence Rules
+- arithmetic expressions can be made up of many constants, variables, operators, and parentheses
+- the basic operators are ordered the same way mathematical operators are, according to /precedence rules/:
+| Precedence Level         | Operators       |
+|--------------------------+-----------------|
+| highest precedence level | Unary + Unary - |
+| middle level             | * / %           |
+| lowest level             | + -             |
+-when arithmetic expression has several binary operators with the same precedence, their /grouping order/ (or /associativity/) is from left to rightmost
+** Type Coercion and Type Casting
+- integer values and floating-point values are stored differencly inside a computer's memory
+*** Assignment Statements
+- a variable declared as a particular type can /only/ hold values of that type
+- /type coercion/ is the implicit conversion of a value from one data type to another
+- a C++ /cast operation/ consists of a data type name and then, within parentheses, the expression to be cenverted
+- a floating-point number can be rounded off, rather than truncated, with:
+        `someInt = int(someFloat + 0.5);`
+  + this only works if `someFloat` is a positive integer
+*** Arithmetic Expressions
+- a mixed typer (or mixed mode) expression is one that mixes data types within an expression
+- whenever an integer value and a floating-point value are joined by an operator, implicit type coercion occurs:
+  1. the integer value is temporarily coerced to a floating-point value
+  2. the operation is perfomed
+  3. the result is a floating-point value
+- explicit type casts can be done within mixed type expressions, just as with assignment statements, to lessen the risk of errors
+* Function Calls and Library Functions
+** Value-Returning Functions
+- a /function call/ (function invocation) is the mechanism that transfers control to a function
+- the value within a function call is called an /argument/, or /argument parameter/
+- the /argument list/ is a way for functions to communicate with one another
+- a function call has higher precedence than multiplication
+- several facts about value-returning functions:
+  + the function call is used within an expression; it does not appear as a separate statement
+  + the function computes a value (/result/) that is then available for use in the expression
+  + the function returns exactly one result--no more, no less
+- value-returning functions expect to be given (or /passed/) an argument of their return type
+** Library Functions
+- every C++ system includes a standard library--a large collection of prewritten functions, data types, and other items that any C++ programmer may use
+  + the functions in the library are divided into separate files, called /header files/
+| Header File | Function    | Argument Type | Result Type | Result (Value Returned)                                                                                        |
+|-------------+-------------+---------------+-------------+----------------------------------------------------------------------------------------------------------------|
+| `<cstdlib>` | `abs(i)`    | `int`         | `int`       | absolute value of `i`                                                                                          |
+| `<cmath>`   | `cos(x)`    | `float`       | `float`     | cosine of `x` (`x` is in radians)                                                                              |
+| `<cmath>`   | `fabs(x)`   | `float`       | `float`     | absolute value of `x`                                                                                          |
+| `<cstdlib`  | `labs(j)`   | `long`        | `long`      | absolute value of `j`                                                                                          |
+| `<cmath>`   | `pow(x, y)` | `float`       | `float`     | `x` raised to the power of `y` (if `x` = 0.0, `y` must be positive; if `x` <= 0.0, `y` must be a whole number) |
+| `<cmath>`   | `sin(x)`    | `float`       | `float`     | sine of `x` (`x` is in radians)                                                                                |
+| `<cmath>`   | `sqrt(x)`   | `float`       | `float`     | square root of `x` (`x` >= 0.0)                                                                                    |
+- technically, the entries in the table marked `float` should all say `double`
+  + these library functions perform their work using double-precision floating-point values
+- to use a library function, place an `#include` line near the top of the program with the header file that has the funtion within it
+** Void functions
+- void functions are their own standalone statements
+  + they are not called as part of another statement
+* Formatting Output
+** Integers and Strings
+- by default, consecutive integer and string values are output with no spaces between them
+- one method to separate the output values is to pring a single blank (as a `char` constant) between them
+  + string literals can be used to place greater space
+- another way is to use manipulators
+  + a manipulator behaves like a function but travels in the disguise of a data object
+  + like a function, a manipulator causes some action to occur
+  + like a data object, a manipulator can appear in the midst of a series of insertion operations
+- manipulators are used only in input and output statements
+- the C++ standard library supplies many manipulators, five common are:
+  1. `endl`
+  2. `setw`
+  3. `fixed`
+  4. `showpoint`
+  5. `setprecision`
+- the `endl`, `fixed`, and `showpoint` manipulators are available when the header file `iostream` is included
+- `setw` and `setprecision` require the header file `iomanip`
+  + `setw` (meaning "set width") allows for control of how many positions the next data item should occupy in when output
+    - its argument is an integer called the /fieldwidth specification/
+    - the group of character positions is called the /field/
+    - the next data item to be output is printed /right-justified/
+** Floating-Point Numbers
+- when specifying a fieldwidth for floating-point values, a value for the decimal point must be included
+  + if an insufficient fieldwidth is not provided, the field will automatically expand to acommodate the number
+- several other issues arise when we are working with the output of floating-point numbers:
+  1. large floating-point values are printed in scientific (E) notation
+     a. the manipulator `fixed` can be used to force all subsequent floating-point output to appear in decimal form rather than scientific notation
+  2. if the number is a whole number, C++ doesn't print out a decimal point
+     a. to force decimal points to be displayed in subsequent floating-point output, use the manipulator `showpoint`
+  3. the full length of the floating-point value will be printed
+     a. to control the number of decimal places that are displayed, use the `setprecision` manipulator
+     b. as long as `fixed` has already been specified, `setprecision` specifies the desired number of decimal places
+- unlike `setw`, which applies only to the very next item printed, the value sent to `setprecision` remains in effect for all subsequent output until changed with another call
+- the `scientific` manipulator forces output to be in scientific notation
+  + when the output is in `scientific` mode, `setprecision` determines the number of digits displayed preceding the exponent
+| Header File  | Manipulator       | Argument Type | Effect                                                     |
+|--------------+-------------------+---------------+------------------------------------------------------------|
+| `<iostream>` | `endl`            | none          | terminates the current output line                         |
+| `<iostream>` | `showpoint`       | none          | forces display of a decimal point in floating-point output |
+| `<iostream>` | `fixed`           | none          | activates fixed-point notation in floating-point output    |
+| `<iostream>` | `scientific`      | none          | activiates scientific notation in floating-point output    |
+| `<iomanip>`  | `setw(n)`         | `int`         | sets the fieldwidth to `n`                                 |
+| `<iomanip>`  | `setprecision(n)` | `int`         | sets the floating-point precision to `n` digits             |
+* Additional `string` Operations
+** The `length` and `size` Functions
+- when applied to a `string` variable, the `length` functoin returns an unsigned integer value that equals the number of characters currently in the string
+- C++ uses /dot notation/ for many function calls
+** The `find` Function
+- the `find` function searches a string to find the first occurence of a particular substring and returns an unsigned integer value (of type `string::size_type`)
+  + the substring, passed as an argument to the function, can be either a string literal or a `string` expression
+- if the substring could not be found, the function returns the special value `string::npos`
+  + this is a named constant meaning "not a position within the string" (a value of `4294967295` on many machines)
+** Ther `substr` Function
+- the `substr` function returns a particular substring of a string
+  + it takes two arguments:
+    1. an unsigned integer that specifies a position within the string
+    2. an unsigned integer that specifies the lenghth of the desired substring
+- the function returns a piece of the string that starts with the specified position and continues for the number of characters given by the second arguments
+- it does not change the original string
+- because it returns a value of `string`, it can be used with concatination
+** Accessing Characters Within a String: The `at` Function
+- C++ allows for characters in a string to be accessed directly by their position
+- an individual character in a string can be accessed using the /at/ function
+  + C++ uses 0-based indexing
+** Converting no Lowercase and Uppercase
+- the header file `<cctype>`, in the standard library, provides two value-returning functions called `toupper` and `tolower`
+- they perform the respective operation on the charater passed as an argument
+| Function Call           | Argument Type(s)                    | Result Type         | Result (Value Returned)                                                                                                                                                                    |
+|-------------------------+-------------------------------------+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `s.length()` `s.size()` | none                                | `string::size_type` | number of characters in string                                                                                                                                                             |
+| `s.find(arg)`           | `string`, string literal, or `char` | `string::size_type` | starting position in `s` where `arg` was found; else `string::npos`                                                                                                                        |
+| `s.substr(pos, len)`    |                                     | `string`            | substring of at most `len` characters, starting at `pos` of `s`. if `len` is too large, it means "to the end" of string `s`; if `pos` is too large, execution of the program is terminated+ |
+| `s.at(pos)`             |                                     | `char`              | returns `char` at `pos` position in `s`; if `pos` is too large, execution of the program is terminated                                                                                     |
+| `toupper(ch)`           | `char`                              | `char`              | returns the uppercase of `ch` if lowercase; otherwise, `ch` is unchanged                                                                                                                   |
+| `tolower(ch)`           | `char`                              | `char`              | returns lowercase of `ch` if uppercase; otherwise, `ch` is unchanged                                                                                                                        |
++ technically, if `pos` is too large, the program generates an out-of-range exception, which terminates the program unless code is written to deal with it

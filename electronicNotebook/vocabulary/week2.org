@@ -1,0 +1,33 @@
+#+TITLE: Week 2 - Vocabulary
+
+- /assignment statement/ - a statement that stores the value of an expression into a variable
+- /body/ - statements between braces of a function or another statement
+- /character set/ - the set of alphanumeric characters that a machine can represent
+- /collating sequence/ - the predefined ordering of all characters in a character set
+- /concatenation/ - the joining of two string constants into a new string containing the characters from both strings
+- /constant/ - something whose values never changes
+- /constructs/ - symantically correct structures
+- /data objects/ - constants and variables
+- /data type/ - a specific set of data values along with a set of operations on those values
+- /declaration/ - a statement that associates an identifier with a data object, function, or data type so that the programmer can refer to that item by name
+- /evaluate/ - to compute a new value by performing a specified set of operators on given values
+- /expression/ - an arrangement of identifiers, literals, and operators that can be evaluated to compute a given type
+- /file/ - a named area in secondary storage that is used to hold a collection of data; the collection of data itself
+- /functions/ - all subprograms within a program
+- /header file/ - a file whose name appears in an `#include` directive
+- /heading/ - the first line of a function
+- /identifier/ - a name associated with a function or data object and used to refer to that function or data object
+- /literal value/ - any constant value written in a program
+- /metalanguage/ - a language that is used to write the syntax rules for another language
+- /named constant/ - a location in memory, referenced by an identifier, that contains a data value that cannot be changed
+- /null statement/ - an empty statement; just a semicolon
+- /null string/ - a string written using two double quotes with nothing between them
+- /preprocessor directive/ - a line beginning with a pound sign
+- /programmer-defined/ - those types that are defined by the programmer and do not come standard in the language
+- /reserve word/ - a word that has special meaning in C++; it cannot be used as a programmer-defined identifier
+- /semantics/ - the set of rules that determine the meaning of instructions written in a programming language
+- /standard types/ - the types that are used so frequently that C++ defines them for the programmer
+- /string/ - a sequence of characters enclosed in double quotes
+- /syntax/ - the formal rules governing how valid instructions are written in a coding language
+- /syntax template/ - a generic example of the C++ construct being defined
+- /variable/ - a location in memory, referenced by an identifier, that contains a data value that can be changed
