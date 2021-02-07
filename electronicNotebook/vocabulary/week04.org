@@ -1,0 +1,22 @@
+#+TITLE: Week 04 Vocabulary
+
+- /abstract step/ - a step for which some implementation details remain unspecified
+- /analysis/ - analyzing and understanding the problem to be solved
+- /concrete step/ - a step for which the implementation details are fully specified
+- /design/ - designing a solution to the problem
+- /echo printing/ - printing out all of the data values typed in by the user so that the user can verify what was entered was done so correctly
+- /fail state/ - when invalid data is encountered duing an input operation
+- /functional cohesion/ - a property of a module in which all concrete steps are directed toward solving just one problem, and any significant subproblems are written as abstract steps
+- /functional decomposition/ - a technique for developing software in which the problem is divided into more easily handled subproblems, the solutions of which create a solution to the overall problem
+- /functional equivalence/ - a property of a module that performs exactly the same operation as the abstract step it defines; a pair of modules are also functionally equivalent to each other when they perform exactly the same operation
+- /input/ - the process of placing values from an outide data set into variables in a program
+- /input prompt/ - a printed message explaining to what the user should enter
+- /input stream/ - a "doorway" through which characters come into the program from an input device
+- /module/ - a self-contained collection of steps that solves a problem or subproblem; can contain both concrete and abstract steps
+- /newline character/ - a special character that tells the computer that it has reached the end of a line
+- /object/ - a self-contained entity composed of data and operations on that data
+- /object-oriented design (OOD)/ - a technique for developing software in which the solution is expressed in terms of objects
+- /pseudocode/ - a mixture of English statements and C++-like control structures that can be translated easily into C++
+- /reading marker/ - an indicator of the next character to be read from the input stream
+- /self-documenting code/ - program code containing meaningful identifiers as well as judiciously used clarifying comments
+- /whitespace characters/ - blanks and certain nonprintable characters, such as those that mark the end of a line
