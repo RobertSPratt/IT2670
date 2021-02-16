@@ -1,0 +1,15 @@
+#+TITLE: Week 05 - Vocabulary
+
+- /branching condition/ - (/assertion/) a claim that is either true or false
+- /class/ - a programmer-defined type from which declared variables are called objects
+- /control structure/ - a statement used to alter the normally sequential flow of control
+- /dangling else/ - an else statement that is attached to the wrong if statement by the compiler
+- /flow of control/ - the order in which the computer executes statements in a program
+- /full evaluation/ - the computer first evaluates both subexpressions before applying the logical operator to produce the final result
+- /logical expressions/ - the term used to refer to assertions in programming languages
+- /logical operators/ - `&&`, `||`, and `!` C++ operators
+- /nested control structure/ - when a control structure is within the code block of another control structure
+- /relational expression/ - an expression followed by a relational operator followed by an expression
+- /relational operators/ - test a relationship between two values
+- /short-circuit (conditional) evaluation - evaluation of a logical expressoin in left-to-right order, with evaluation stopping as soon as the final truth can be determined
+- /testing the state of the stream/ - the act of using a C++ stream object in a logical expression as if it were a Boolean variable; the result is true if the last I/O operation on that stream succeeded, and false otherwise
