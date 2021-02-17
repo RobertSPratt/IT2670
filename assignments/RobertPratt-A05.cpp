@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -21,21 +22,35 @@ int main()
     cout << "\nYou entered " << digit << " and the prime numbers that end with a " << digit << " are ";
 
     bool noneFound = true;
-    string numbers = "";
+    bool isPrime = false;
+    int numbers[10];
+
 
     for(int i = 0; i < 100; i++) {
-      bool isPrime = false;
-
-      if(i % 2 == 0) {
+      if(i % 2 == 0)
         isPrime = true;
 
-        if(i % 10 == digit) {
-          numbers += " " + i;
-          noneFound = false;
-        }
+      if(isPrime && i % 10 == digit) {
+        noneFound = true;
+
+        for(int j = 0; j <= (int)sizeof(numbers); j++)
+          if(numbers[j] == 0) {
+            numbers[j] = i;
+            continue;
+          }
       }
+
+      isPrime = false;
     }
 
-    cout << (noneFound == false) ? numbers : "NONE";
+    string answer = "";
+    for(int i = 0; i <= (int)sizeof(numbers); i++)
+      answer += to_string((char)numbers[i]) + " ";
+
+    //cout << (noneFound == false) ? answer : "NONE";
+    if(!noneFound)
+      cout << "NONE";
+    else
+      cout << answer;
     return 0;
 }
