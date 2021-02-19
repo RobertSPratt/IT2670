@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
+
+string to_str(int i);
 
 int main()
 {
@@ -22,35 +25,43 @@ int main()
     cout << "\nYou entered " << digit << " and the prime numbers that end with a " << digit << " are ";
 
     bool noneFound = true;
-    bool isPrime = false;
+    bool isPrime = true;
     int numbers[10];
+    int pointer = 0;
 
 
-    for(int i = 0; i < 100; i++) {
-      if(i % 2 == 0)
-        isPrime = true;
+    for(int i = 2; i < 100; i++) {
+      for(int j = 2; j < i; j++)
+        if(i % j == 0) {
+          isPrime = false;
+          break;
+        }
 
       if(isPrime && i % 10 == digit) {
-        noneFound = true;
-
-        for(int j = 0; j <= (int)sizeof(numbers); j++)
-          if(numbers[j] == 0) {
-            numbers[j] = i;
-            continue;
-          }
+        numbers[pointer] = i;
+        pointer++;
+        noneFound = false;
       }
 
       isPrime = false;
     }
 
-    string answer = "";
-    for(int i = 0; i <= (int)sizeof(numbers); i++)
-      answer += to_string((char)numbers[i]) + " ";
+    string answer = (char*)malloc(1);
+    for(int i = 0; i <= (int)sizeof(numbers); i++){
+      answer = answer + to_string((int)numbers[i]);
+    }
 
-    //cout << (noneFound == false) ? answer : "NONE";
-    if(!noneFound)
-      cout << "NONE";
+    if(noneFound == false) {
+      for(int i = 0; i < (int)sizeof(numbers); i++)
+        cout << numbers[i];
+    }
     else
-      cout << answer;
+      cout << "NONE";
     return 0;
+}
+
+string to_str(int i) {
+  stringstream strstream;
+  strstream << i;
+  return strstream.str();
 }
