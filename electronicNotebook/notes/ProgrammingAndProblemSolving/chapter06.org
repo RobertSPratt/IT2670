@@ -1,0 +1,99 @@
+#+TITLE: Chapter 06 - Looping
+
+- the /physical order/ is the order in which the statements appear in a program
+- the /logical order/ is the order in which the programmer wants the statements to be executed in a program
+- in addition to using an `if` statement as a way to make the logical order differ from the pysical order, looping control structures can also be used
+  + a /loop/ executes the same statement (simple or compound) over and over, as long as a condition or set of conditions is satisfied
+- /nested loops/ are loops that are within other loops
+* The While Statement
+- the `while` statement, like the `if` statement, tests a condition
+  + it is a looping control structure
+- the statement(s) to be executed each time through the loop is called the /body/ of the loop
+  + if the body is a compound statement, it is called a /block/, which allows a group of statements to be executed repeatedly
+- the condition in a `while` statement can be an expression of any simple data type
+  + nearly always, it is a logical expression or, if not, it's value is implicitly coerced to type `bool`
+  + the body is executed as long as the condition evaluates to true
+- the `if` statement is used to /choose/ a course of action; the `while` is used to /repeat/ a course of action
+* Phases of Loop Execution
+- the body of a loop is executed in several phases:
+  + the moment that the flow of control reaches the first statement inside the loop body is the /loop entry/
+  + each time the body of a loop is executed, a pass is made through the loop, called an /iteration/
+  + berfore each iteration, control is transferred to the /loop test/ at the beginning of the loop
+  + when the last iteration is complete, and the flow of control has passed to the first statement following the loop, the program has /exited the loop/; the condition that causes a loop to be exited is the /termination condition/
+- the loop exit occurs at only one point: when the loop test is performed
+  + even if the termination condition becomes satisfied midway through the execution of the loop, the current iteration is completed before the computer checks the `while` expression again
+* Loops Using the While Statement
+- /count-controlled loops/ are those that repeat a specified number of times
+- /event-controlled loops/ are those that repeat until something happens within the loop
+** Count-Controlled Loops
+- a count-controlled loop uses a variable called the /loop control variable/ in the loop test
+  + the loop control variable needs to be /initialized/ and tested before a count-controlled loop can be entered
+- a /counter/ is another name for a loop control variable
+- an /infinite loop/ is a loop that never exits
+** Event-Controlled Loops
+- several kinds of event-controlled loops exist: sentinel controlled, end-of-file controlled, and flag controlled
+  + all of these require an event to occur for the their termination condition
+*** Sentinel-Controlled Loops
+- loops are often used to read in and process long lists of data
+  + each time the loop body is executed, a new piece of data is read and processed
+- a /sentinel/, or /trailer value/, is a special value used to signal the program that no more data remains to be processed
+  + looping continues as long as the data value read is not the /sentinel/
+  + must be something that never shows up in the normal input to the program
+- a /priming read/ is reading the first set of values before entering the loop
+- often the problem dictates the value of the sentinel
+  + sometimes, a range of values is the sentinel
+*** End-of-File-Controlled Loops
+- after a program has red the last piece of data from an input file, the computer is at the end of the file (EOF) and the stream state is in a successful state
+  + if any additional value is attemped to be processed, the stream goes into a fail state
+*** Flag-Controlled Loops
+- a /flag/ is a Boolean variable that is used to control the logical flow of a program
+- the Boolean variable can be used to record whether the event that controls the process has occurred
+- flags do not need to be initialized to `true`
+  + if so, the NOT operator `!` must be used in the expression
+** Looping Subtasks
+- looping by itself does nothing
+  + the loop body must perform a task for the loop to accomplish something
+*** Counting
+- a common task in a loop is to keep track of the number of times the loop has been executed
+- an /iteration counter/ is a counter varaible whose value equals the number of iterations through a loop
+*** Summing
+- another commont looping task is to sum a set of data values
+- an /event counter/ is a variable that is incremented each time a particular event occurs
+* How to Design Loops
+- there are seven points to consider in designing a loop:
+  1. what is the condition that ends the loop?
+  2. how should the condition be initialized?
+  3. how should the condition be updated?
+  4. what is the process being repeated?
+  5. how should the process be initialized?
+  6. how should the process be updated?
+  7. what is the state of the program on exiting the loop?
+** Designing the Flow of Control
+- the most important step in loop design is deciding what should make the loop stop
+  + if the termination condition isn't well thought out, the program might potentially contain infinite loops and other mistakes
+*** Count-Controlled Loops
+- if the loop is count controlled, the condition is initialized by giving the loop control variable an initial value
+  + for count-controlled loops in which the loop control variable is also an iteration counter, the initial value is usually 1
+  + if the counter needs to run through a specific range of values, the initial value should be the lowest value in that range
+- the condition is updated by increasing the value of the counter by 1 for each iteration
+*** Sentinel-Controlled Loops
+- in sentinel-controlled loops, a priming read may be the only initialization necessary
+  + if the input source is a file rather than the keyboard, it may also be necessary to open the file in preparation for reading
+*** EOF-Controlled Loops
+- require the same initialization as sentinel-controlled loops
+- if the loop doesn't read any data, it can never reach EOF
+*** Flag-Controlled Loops
+- the Boolean flag variable must be initialized to `true` or `false` and then updated when the condition changes
+- the flag variable eseentially remains unchanged until it is time for the loop to end
+  + the code detects some condition within the process being repeated that changes the value of the flag
+- because the update depends on what process does, sometimes the process has to design the process before a decision can be on how to update the condition
+** The Loop Exit
+- if variables or files used in the loop are used later in the program, the loop must leave them in an appropriate state
+* Designing Nested Loops
+- to design a nested loop, begin with the outer loop
+  + the process being repeated includes the nested loop as one of its steps
+- after designing the outer loop, the design methodology for the inner loop
+- nested loops themselves can contain nested loops, called /doubly nested loops/
+  + these can also contain nested loops, called /triply nested loops/
+  + the nesting can continue
+- a process within a loop can include more than one loop
