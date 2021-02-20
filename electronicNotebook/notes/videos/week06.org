@@ -1,0 +1,17 @@
+#+TITLE: Week 06 - Video Notes
+
+* Introduction to Classes and Objects - Part 1 (Data Structures & Algorithms # 3)
+- an /object/ is a collection of properties and functions
+- objects can be stored in variables
+- /instance variables/ or /attributes/ are the properties of an object
+- the functions are called /methods/
+- a /class/ is a blueprint to make objects
+  + a class does not refer to any specific object
+- a common convention is to name a class with a starting capital letter
+- `this` refers to the object running the function
+  + not always needed, but can provide extra clarity
+- a /constructor/ is a function that allows the creation of an object from a class while setting the attributes for the object
+* Classes & Objects | C++ | Tutorial 27
+- a /class/ is a new data type
+- classes are prefixed with `class`
+- an /object/ is an instance of a class

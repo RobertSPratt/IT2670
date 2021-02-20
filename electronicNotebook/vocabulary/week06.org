@@ -1,6 +1,8 @@
 #+TITLE: Week 06 - Vocabulary
 
+- /class/ - a blueprint to make objects
 - /complexity/ - a measure of the effort expended by the computer in performing a computation, relative to the size of the computation
+- /constructor/ - a function that allows for the creation of an object from a class while setting the attributes for the object
 - /count-controlled loop/ - a loop that executes a specified number of times
 - /event-controlled loop/ - a loop that terminates when something happens inside the loop bosy to signal that the loop should be exited
 - /event counter/ - a variable that is incremented each time a particular event occurs
@@ -8,6 +10,7 @@
 - /increment/ - to increase by one
 - /infinite loop/ - a loop that never exits
 - /initialize/ - to set the initial value of a variable
+- /instance variables/ - (/attributes/) the properties of an object
 - /iteration/ - an individual pass through, or repitition of, the body of a loop
 - /iteration counter/ - a counter variable that is incremented with each iteration of a loop
 - /logical order/ - the order in which the programmer wants the statements to be executed in a program
@@ -16,6 +19,8 @@
 - /loop entry/ - the point at which the flow of control reaches the first statement inside a loop
 - /loop exit/ - the point at which the repetition of the loop body ends and control passes to the first statement following the loop
 - /loop test/ - the point at which the `while` expression is evaluated and the decision is made either to begin a new iteration or to skip to the statement immediately following the loop
+- /method/ - the functions within a class
+- /object/ - a collection of properties and functoins
 - /physical order/ - the order in which the statements appear in a program
 - /priming read/ - reading the first set of values before entering the loop
 - /sentinel/ - (/trailer value/) used to signal the program that no more data remains to be processed
