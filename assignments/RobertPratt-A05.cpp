@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-string to_str(int i);
+bool find_specific_primes(int digit);
 
 int main()
 {
@@ -24,44 +23,30 @@ int main()
 
     cout << "\nYou entered " << digit << " and the prime numbers that end with a " << digit << " are ";
 
-    bool noneFound = true;
-    bool isPrime = true;
-    int numbers[10];
-    int pointer = 0;
-
-
-    for(int i = 2; i < 100; i++) {
-      for(int j = 2; j < i; j++)
-        if(i % j == 0) {
-          isPrime = false;
-          break;
-        }
-
-      if(isPrime && i % 10 == digit) {
-        numbers[pointer] = i;
-        pointer++;
-        noneFound = false;
-      }
-
-      isPrime = false;
-    }
-
-    string answer = (char*)malloc(1);
-    for(int i = 0; i <= (int)sizeof(numbers); i++){
-      answer = answer + to_string((int)numbers[i]);
-    }
-
-    if(noneFound == false) {
-      for(int i = 0; i < (int)sizeof(numbers); i++)
-        cout << numbers[i];
-    }
-    else
-      cout << "NONE";
-    return 0;
+    if(!find_specific_primes(digit))
+        cout << "NONE";
 }
 
-string to_str(int i) {
-  stringstream strstream;
-  strstream << i;
-  return strstream.str();
+//returns true if primes ending in the specified digit are found, false otherwise
+bool find_specific_primes(int digit) {
+    bool is_prime = true;
+    bool none_found = true;
+
+    for(int i = 2; i < 100; i++) {
+        for(int j = 2; j < i; j++) {
+            if(i % j == 0) {
+                is_prime = false;
+                break;
+            }
+        }
+
+        if(is_prime && i % 10 == digit) {
+            cout << i << " ";
+            none_found = false;
+        }
+
+        is_prime = true;
+    }
+
+    return !none_found;
 }
