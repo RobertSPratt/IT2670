@@ -1,0 +1,9 @@
+#+TITLE: Week 07 - Vocabulary
+
+_ *assignment expression* - a C++ expression with both a value and the side effect of storing the expression value into a memory location
+- *break statement* - causes an immediate exit from the innermost statement in which it appears
+- *continue statement* - terminates the current loop iteration but not the entire loop
+- *driver* - a simple program used to enter test data values
+- *expression statement* - a statement formed by appending a semicolon to an expression
+- *promotion* - (widening) the conversion of a value from a "lower" type to a "highter" type according to a programming language's precedence of data types
+- *switch expression* - the expression whose value determines which switch label is selected; it cannot be a floating-point or string expression
