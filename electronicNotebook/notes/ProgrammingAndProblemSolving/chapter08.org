@@ -1,0 +1,120 @@
+#+TITLE: Chapter 08 - Functions
+* Functional Decomposition with Void Functions
+- two kinds of subprograms within C++: value-returning functions and void functions
+** When to Use Functions
+- in general, you can code any module as a function
+  + some are so simple, though, that this step is really unnecessary
+- the decision to code a function should be based on whether the ovreall program would be easier to understand as a result
+  + other factors affect the decision, but this is the simplest one to use
+- if a module is only a single line, it is usually best to write it directly into the program
+  + turning it into a function only complicates the code
+- if a module is many lines long, it is natural to turn it into a function
+- one case where a short module might be implemented as a function is when the module is used in several places within the function
+  + this yeilds a better design because it reduces the chances of a mistake and decreases maintenance by only needing to update code in a single location
+- implementing a mpdule as a function should affect only the readability of the program and may make changes more or less convenient later
+  + it should not alter the functioning of the program, but this depends on the module's interface
+** Why Do Modules Need an Interface Design?
+- modules in larger programs need to be designed with the equivalent of doors
+  + they should not have direct access to each other's values
+  + information should enter and leave them via just one carefully controlled route
+- this aspect of a module's design is called its interface
+- there are two views that to take of an interface: external and internal
+** Designing Interfaces
+- from the external persperctive, as long as it is known what the module does and how to call it
+  + it can be used without knowing how it can be used
+- the specification of what a module does and how it is invoked defines its *interface*
+- hiding a module implementation is called *encapsulation*
+  + when a module is encapsulated, we don't have to worry that it will accidentally access the values in other modules or vice-versa
+- another advantage of encapsulation is that we can make internal changes to the module
+  + as long as the interface remains the same, no changes are necessary with the rest of the program
+- interfaces and encapsulation are basis for /team programming/
+  + this is where a group of programmers work together to solve a large problem
+- designing the module should be divided into two tasks:
+  + designing the external interface
+  + designing the internal implementation
+- to define the mechanism for communicating with the module, we make a list of the following items:
+  1. /incoming values/ that the module receives from the caller
+  2. /outgoing values/ that the module produces and returns to the caller
+  3. /incoming/outgoing values/ - values the caller has that the module changes
+- for the internal implementation, we choose names for identifiers that will exist as variables inside the module, each of which maches a value in our list
+  + these identifiers become the *parameter list* for the module
+- parameters are written in the module heading
+  + any other variables that the module needs are /local/ and declared within its body
+- the direction of *data flow* for each parameter is documented in as part of the module's interface
+** Writing Modules as Void Functions
+- a void function looks like the `main` function except that it uses void as its data type
+  + it also does not contain a `return` statement
+- a /function definition/ is code that extends from the function heading to the end of the block that is the body of the function
+  + the function heading begins with `void`
+- C++ function definitions can appear in any order
+  + C++ programmers typically put `main` first and any supporting functions after it
+- /function prototypes/ are statement declarations of a function to infrom the compiler that the function exists later in the code
+  + because C++ requires that identifiers be declared before they are used, function prototypes are placed before the `main` function when it is the first in the code
+* An Overview of User-Defined Functions
+** Flow of Control in Function Calls
+- during compilation, functions are translated in the order in which they physically appear
+  + during execution, control begins at the first statement in `main` and proceeds in logical order
+- when a function call is encountered, controll passes to the first statement in that functions body
+  + execution is done in logical order until either a `return` statement is reached or no statements remain
+- functions are considered control structures because they alter the order of execution
+** Function Parameters
+- a /parameter declaration/ - is code in the function heading that is surrounded by a set of parentheses
+- the items listed in the call to a function are called the *arguments*
+- the variables declared in the function heading are *parameters*
+  + they provide identifiers within the function that can be used to refer to the supplied arguments
+- if more than one argument is passed to a function, the arguments and parameters are matched by their relative positions in the two lists
+* Syntax and Semantics of Void Functions
+** Function Call (Invocation)
+- to call (or invoke) a void function, we use its name as a statement, with the arguments in parentheses following the name
+  + if the argument list contains two or more, they are separated by a comma
+** Function Declarations and Definitions
+- in C++, a function's declaration must physically precede any function call
+  + the declaration gives the compiler the name of the function, the form of the function's return value, and the data types of the parameters
+- in C++ terminology, a function declaration that omits teh body is called a *function prototype
+  + a declaration that does include the body is called a *function definition
+- in general, C++ distinguishes declarations from definitions by whether memory space is allocated for the item
+  + the rule throughout C++ is that you can declare an item as many times as you wish, but you can define it only once
+*** Function Prototypes
+- allow us to declare functions before they are defined, so that we can arrange their definitions in any order
+- there is a situation in C++ where function prototypes are essential: when one function calls another that is defined after it
+- in a function prototype, the parameter list must specify the data types of the parameters, but their names are optional
+  + sometimes it's useful for documentation purposes to supply the names for the parameters, but the compiler ignores them
+*** Function Definitions
+- a function definition consists of two parts: the function heading and the function body
+  + the functoin heading dose /not/ end in a semicolon the way a function prototype does
+- the parameter list must specify the names of all parameters
+** Local Variables
+- because a function body is a block, any function can include variable declaration
+  + these variables are called *local variables* because they are accessible only within the block in which they are declared
+- variables declared outside of all the functions in a program are called global variables
+- local variables occupy memory space only while the function is executing
+  + when the function returns, its local variables are destroyed
+  + everytime a function is called, its local variables start out with their variables undefined
+** The Return Statement
+- a `return` statement without a value is only function for `void` functions
+  + it causes control to exit the function immediately and return to the caller
+* Parameters
+- when a function is executed, it uses the arguments given to it in the function call
+- C++ supports two kinds of parameters:
+  1. *value parameters* are declared without an ampersand `&` at the end of its data type name and the function receives a copy of the argument's value
+  2. *reference parameters* are declared with an ampersand `&` at the end of its data type name
+- a reference parameters pass the location (memory address) of the caller's argument
+** Value Parameters
+- when a value parameter is passed to a function, there are two copies of its value: one in calling function and one in the called function
+- if the value of an argument does not match it's corresponding parameter, it is implicitly coerced
+** Reference Parameters
+- declared by attaching an ampersand to the name of its data type
+- called a reference parameter because the called function can refer to the corresponding argument directly
+- when a referenc parameter is passed to a function, only one copy of the value exists
+- when a function returns control to its caller, the link between the argument and the parameter is broken
+- care must be taken when using a refence parameter because any change made to it affects the argument in the calling code
+- implicit coercion does not happen with reference parameters
+  + the value of the argument and parameter must match
+** Using Expressions with Parameters
+- only a variable should be passed as an argument to a reference parameter because a function can assign a new value to the argument
+  + in contrast, an arbitrarily complicated expression can be passed to a value parameter
+** A Last Word of Caution About Argument and Parameter Lists
+- it is the programmer's responsibility to make sure that the argument list and parameter list match up semantically as well as syntactically
+** Writing Assertions as Function Documentation
+- the /precondition/ is an assertion describing everything that the function requires to be true at the moment when the caller invokes the function
+- the /postcondition describes the state of the progrem at the moment when the function finishes executing

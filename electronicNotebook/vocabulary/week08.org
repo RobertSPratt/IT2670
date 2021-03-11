@@ -1,0 +1,17 @@
+#+TITLE: Week 08 - Vocabulary
+
+- /argument/ - a variable or expression listend in a call to a function
+- /data flow/ - the direction of flow of information between the caller and a module through each parameter
+- /encapsulation/ - hiding a module implementation in a separate block with a formally specified interface
+- /function definition/ - a function declaration that includes the body of the function
+- /function prototype/ - a function declaration without the body of the function
+- /global variables/ - variables declared outside of all of the functions in a program
+- /interface/ - the formal description of what a subprogram does and how we communicate with it
+- /local variable/ - a variable declared within a block and not accessible outside of that block
+- /module parameter list/ - a set of variables within a module that hold values that are either incoming to the module or outgoing to the caller, or both
+- /parameter/ - a variable declared in a function heading
+- /parameter declaration/ - code surrounded by parenthesis in the function heading
+- /postcondition/ - a description of the state of the program at the moment when the function finishes executing
+- /precondition/ - a description of everything that the function requires to be true at the moment when it is called
+- /team programming/ - where a group of programmers work together to solve a large problem
+- /value parameter/ - parameters declared without an ampersand `&` at the end of its data type and passing a copy of the arguments value to the function
