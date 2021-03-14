@@ -32,7 +32,7 @@ class Rectangle {
   }
 
   int get_area() {
-    return length * width;
+    return (length * width);
   }
 };
 
@@ -47,7 +47,7 @@ int main() {
     int l=0,w=0;
 
      //Remove Comment to Create the Rectangle
-     Rectangle rect(0, 0);
+     Rectangle rect(l, w);
 
     // Begin while() loop here
      while(true) {
@@ -57,17 +57,22 @@ int main() {
       cin >> len;
 
       if(len.compare("x") == 0) {
+        cout << len << endl << endl;
+        cout << "Program Terminated by User" << endl;
         break;
       }
 
       l = stoi(len);
       rect.set_length(l);
+      cout << rect.get_length() << endl << endl;
 
       cout << "Please enter width of the rectangle: ";
       cin >> wid;
       w = stoi(wid);
+      rect.set_width(w);
+      cout << rect.get_width() << endl << endl;
 
-      cout << rect.get_area();
+      cout << "Area = " << rect.get_area() << endl;
     }
     cout << "\nBye\n";
 
