@@ -1,0 +1,22 @@
+#+TITLE: Week 09 - Vocabulary
+
+- /automatic variable/ - a variable for which memory is allocated and deallocated when control enters and exits the block in which it is declared
+- /communication complexity/ - a measure of the quality of data passing though a module's interface
+- /control abstraction/ - the separation of the logical properties of an action from its implementation
+- /demotion/ - (/narrowing/) the conversion of a value from a "higher" type to a "lower" type according to a programming language's precedence of data types; may cause a loss of information
+- /driver/ - a simple main function that is used to call a function being tested; the use of a driver permits direct control of the testing process
+- /function value type/ - the data type of the result value returned by a function
+  /functional cohesion/ - the principle that a module should perform exactly one abstract action
+- /getter/ - a method that retrieves the value of an encapsulated variable
+- /lifetime/ - the period of time during program execution when an identifier has memory allocated to it
+- /name clash/ - multiple definitions of the same identifiers
+- /name precedence/ - (/name hiding/) the precedence that a local identifier in a function has over a global identifier with the same name in any references that the function makes to that identifier
+- /nonlocal identifier/ - any identifier declared outside of a given block
+- /private/ - another entity cannot directly access this entity
+- /public/ - another entity can directly access this entity
+- /setter/ - a method that sets/changes the value of an encapsulated variable
+- /side effect/ - any effect of one function on another function that is not a part of the explicitly defined interface between them
+- /scope/ - the region of program code where it is legal to reference/use an identifier
+- /scope rules/ - the urles that determine where in the program an identifier may be accessed, given the point where that identifier is declared
+- /static variable/ - a variable for which memory remains allocated throughout the execution of the entire program
+- /stub/ - a dummy function that assists in testing part of a program; has the same name and interface as a function that actually would be called by the part of the program being tested, but is usually much simpler that the real function

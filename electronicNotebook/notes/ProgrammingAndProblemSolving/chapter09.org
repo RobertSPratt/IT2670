@@ -1,0 +1,160 @@
+#+TITLE: Chapter 09 - Scope, Lifetime, and More on Functions
+* Scoep of Identifiers
+- local variables are those declared inside a block
+  + they cannot be accessed outside the block that contains them
+  + the same rule applies to named constants
+- any block—not just a function body—can contain variable and constant declarations
+- all of the places from which an identifier could be legally accessed would be described as the identifier's /scope of visibility/ or /scope of access/
+  + often just called *scope*
+- C++ defines several categories of scope for an identifier; here are three
+  1. /class scope/
+  2. /local scope/ - the identifier's scope is from the point of declaration to the end of the block; function parameters exist from the function heading to the end of the block
+  3. /global scope/ - the identifier is declared outside of all functions and classes; its scope extends from the point of declaration to the end of the entire file containing the program code
+- C++ function names have global scope
+  + once a function name has been declared, it can be invoked by any other function in the rest of the program
+- there is no such thing as a local function in C++
+  + a function definition cannot be nested inside another function definition
+- when a function declares a local identifier with the same name as a global identifier, the local identifier takes precedence within the function
+  + this is called /name precedence/ or /name hiding/
+** Scope Rules
+- in C++ programs, you rarely declare global variables
+- the rules for accessing identifiers that aren't declared locally are called /scope rules/
+  + these also define what happens when blecks are nested within other blocks
+- anything declared in a block that contains a nested block is /nonlocal/ to the inner block
+  + if a block accesses any identifier declared outside of its own block, it is termed a /nonlocal access/
+- some detailed scope rules, excluding those for class scope:
+  1. a function name has global scope, and function definitions cannot be nested within function definitions
+  2. the scope of a function parameter is identical to the scope of a local variable declared in the outermost block of the function body
+  3. the scope of a global variable or constant extends from its declaration to the end of the file, except as noted in Rule 5
+  4. the scope of a local variable or constant extends from its declaration to the end of the block in which it is declared; this includes any nested blocks, except as noted in Rule 5
+  5. the scope of an identifier does not include any nested block tht contains a locally declared identifier with the same name (local identifiers hav name precedence)
+- when an expression refers to an identifier, the compiler searches the local scope first
+  + it then moves out one scope level at a time until it finds a matching identifier
+  + any declaration further out is never found
+** Variable Declarations and Definitions
+- a variable declaration also becomes a variable definition only if it also reserves memory for the variables
+- the statement ~extern int someInt;~ is known as an /external declaration
+  + it states that ~someInt~ is a global variable located in another file and that no memory should be allocated for it here
+  + in C++ terminology, it is a declaration, but not a definition
+** Namespaces
+- namespace is a mechanism by which the programmer can create a named scope
+- a namespace definition consists of the word ~namespace~, followed by an identifier of the programmer's choice, and then the /namespace body/ between the braces
+  + identifiers declared within the namespace body are said to have /namespace scope/
+- identifiers with namespace scope can be accessed by using one of three methods:
+  1. use a qualified name
+#+begin_src c
+#include <cstdlib>
+int main()
+{
+    int alpha;
+    int beta;
+    ...
+    alpa = std::abs(beta);  // a qualified name referring to abs
+    std::cout << alpha;     // a qualified name referring to cout
+    ...
+}
+#+end_src
+  2. use a statement called a ~using~ /declaration/
+#+begin_src c
+#include <cstdlib>
+int main()
+{
+    int alpha;
+    int beta;
+    using std::abs;     // a using declaration for abs
+    using std::cout;    // a using declaration for cout
+    ...
+    alpha = abs(beta)
+    cout << alpha;
+    ...
+}
+#+end_src
+  3. to use a ~using~ directive (not to be confused with a ~using~ declaration)
+#+begin_src c
+#include <cstdlib>
+int main()
+{
+    int alpha;
+    int beta;
+    using namespace std;    //a using directive
+    ...
+    alpha = abs(beta);
+    cout << alpha;
+    ...
+}
+#+end_src
+- with a ~using~ directive, /all/ identifiers from the specified namespace are accessible, but only in the scope in which the directive appears
+  + placing the directive in the global scope is a convenience
+- creating global ~using~ directives is considered a bad idea when ceranting large, multifile programs, where programmers often use multiple libraries
+  + two or more libraries may, by coincidence, use the same identifier for different purposes
+    - using a global directive then leads to /name clashes/
+- a refined description of C++ scope
+  1. /class scope/
+  2. /local scope/ - the identifier's scope is from its declaration to the end of the block; function parameters exist from the function heading to the end of the block
+  3. /namespace scope/ - identifier's scope exists from the point of declaration to the end of the namespace body /and/ the scope of any ~using~ directive specifying the namespace
+  4. /global/ (or /global namespace/) /scope/ - the scope of an identifier declared outside all namespaces, functions, and classes extends from the point of declaration to the end of teh entire file containing the program code
+* Lifetime of a Variable
+- related to the scope of a variable is its /lifetime/
+  + this is the period of time during the program execution when an identifier actually has memory allocated to it
+- local variables remain "alive" while the function is executing and their storage is destroyed when the function exits
+  + in contrast, the lifetime of a global variable is the same as the lifetime of teh entire program; memory is only allocated and deallocated once
+- in C++, an /automatic variable/ is one whose storage is allocated at block entry and deallocated at block exit
+- a /static variable/ is one whose storage remains allocated for the duration of the entire program
+  + all global variables are static variables
+- by default, variables declared within a block are automatic variables
+  + the reserved word ~static~ can be used to declare a variable that persists from function call to function call
+- it is usually a better idea to declare a local variable as ~static~ than to use a global variable
+  + for both, the memody remains allocated throughout the lifetime of the program
+  + unlike a global variable, the local scope prevents other functions from interacting with it
+** Initializations in Declarations
+- an automatic variable is initialized to the specified value each time control enters the block
+  + a static variable is initialized only once, the first time control reaches its declaration
+* Interface Design
+** Side Effects
+- /side effects/ are any cause of one function on another that is not explicitly part of its function
+- side effects are sometimes caused by a combination of reference parameters and careless coding in a function
+- the symptoms of side-effect errors are especially misleading about their source because the trouble shows up in one part of the program when it really is caused by something in another part that may be completely unrelated
+- the only external effect that module should have is to transfer information through the well-structured interface of the parameter list
+  + to be more explicit: /the only variables used in a module should be either parameters or local/
+** Global Constants
+- it acceptable to reference named constants globally
+  + because their values cannot be changed while the program is running, no side effects can occur
+- there are two advantages to referencing constants globally:
+  1. ease of change
+  2. consistency
+* Value-Returning Functions
+- value-returning functions are used when a function will return only one result and that result is to be used directly in an expression
+- a value-returning function returns one value—not through a parameter, but rather by means of a ~return~ statement
+- the data type at the beginning of the heading declares the type of value that the function returns, called the /function value type/
+  + if the data type in the ~return~ statement is different than the functional value type, the returned value is coerced to the correct type
+- if a function's value type is ommitted, ~int~ is assumed
+  + many programmers consider this practice to be poor programming style
+** Boolean Functions
+- boolean functions can be useful when a branch or loop depends on some complex condition
+  + rather than code the condition directly into the if or while statement, we can call a function to form the controlling expression
+** Interface Design and Side Effects
+- the interface to a value-returning module is designed in much the same way as the interface to a void module
+- returning more than one value from a value-returning module (by modifying the caller's arguments) is a side effect and should be avoided
+  + if your interface design calls for multiple values to be returned, you should use a void function instead
+- a rule of thumb is to avoid reference parameters in the parameter list of a value-returning module and to use value parameters exclusively
+* Type Coercion in Assignments, Argument Passing, and Return of a Function Value
+- in general, promotion of a value from one type to another does not cause loss of information
+  + /demotion/ (or /narrowing/) of data values can potentially cause loss of information
+- demotion from a longer integral type to a shorter one (such as from ~long~ to ~int~) results in discarding the leftmost (most significant) bits in the binary number representation
+  + the result may be a drastically different number
+- demotion from a floating-point number type to an integral type causes truncation of the fractional part (and an undefined result if the whole-number part will not fit into the destination variable)
+  + the result of truncating a negative number varies from one machine to another
+- demotion from a longer floating-point type to a shorter one (such as from a ~double~ to ~float~) may result in a loss of digits of precision
+* Problem-Solving Case Study: Health Profile
+** Software Engineering Tip
+- the aspect of a design that hides the complexity of a program by separating it's control structures into abstract actions is called /control abstraction/
+  + it can serve as a guideline for deciding which modules to code as functions and which to code directly
+- /functional cohesion/ states that a module should perform exactly one abstract action
+- a module's /communication complexity/ reflects the amount of data that passes through a module's interface and is often an indicator of its cohesiveness
+  + usually, if a module requires a large number of arguments, it is either trying to accomplish too much or is only partially fulfilling a purpose
+* Testing and Debugging
+** Stubs and Drivers
+- when a module contains calls to other modules, we can write dummy functions called /stubs/ to satisfy those calls
+  + a stub usually consists of an output statement that prints a message such as "Function such-and-such got called"
+- a /driver/ program contains the bare minimum of code required to call the module being tested
+- by surrounding a module with a driver and stubs, you gain complete control of the conditions under which it executes

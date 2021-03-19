@@ -1,0 +1,24 @@
+#+TITLE: Week 09 - Video Notes
+
+* What is encapsulation in programming?
+- makes code safer to execute
+- making an entity private keeps another from accessing it
+  + another entity can access one marked public
+- you do not want to override the behavior of scope
+- encapsulation allows you encapsulate things that should not be modified by other parts of your code
+* Java Programming Tutorial 62 - Encapsulation
+- the three big pieces of Object-Oriented Programming
+  1. encapsulation
+  2. inheritance
+  3. polymorphism
+- the whole idea of encapsulation is to hide the inner details
+  + mainly used with class-level variables
+- uses /getter/ and /setter/ methods to work with encapsulated variables
+  + getters retrieve the variable
+  + setters change the value of the variable
+- can swap out the structure without needing to change the interface with encapsulation
+* C++ Programming Tutorial 89 - Encapsulation
+- the two concepts of encapsulation are:
+  1. /abstraction/ - the inner workings of the class do not need to be known to use it
+  2. /control/ - control over what someone can see of and do with our class
+-
