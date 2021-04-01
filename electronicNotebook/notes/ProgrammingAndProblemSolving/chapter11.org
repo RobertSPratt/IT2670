@@ -1,0 +1,95 @@
+#+TITLE: Chapter 11 - Arrays
+* One-Dimensional Arrays
+- a one-dimensional array is a collection of variables—all of the same type—in which the first part of each variable name is the same, and the last part is an /index value/ enclosed in square brackets
+- the declaration of a one-directional array is similar to the declaration of a simple variable except that it's size must also be declared
+  + this is done by indicating the number of components within the array's brackets
+- as a datat structure, an array differs from a struct in two fundamental ways:
+  1. an array is a /homogenous/ data structure, whereas structs are heterogenous types
+  2. a component of an array is accessed by its position in the structure, whereas a component of a struct is accessed by an identifier (the member name)
+** Declaring Arrays
+- a *one-dimensional array* is a structured collection of components (often alled /array elements/) that can be accessed individually by specifying the position of a component with a single index value
+** Accessing Individual Components of an Array
+- to access an individual array compontent, we write the array name, followed by an expression enclodes in square brackets
+  + the expression specifies which component to access
+- the index expression may be as simple as a constant or a variable name or as complex as a cobination of variables, operators, and function calls
+  + whatever the form of the expression, it must result in an integer value
+  + index expressions can be of type ~char~, ~short~, ~int~, ~long~, or ~bool~, because these are all integral types
+  + additionally, values of enumeration types can be used as index expressions, with an enumeration value implicitly being coerced to an integer
+- the ~string~ class was written using the advanced C++ technique of /operator overloading/ to give the ~[ ]~ operator another meaning in additional to its standard one
+  + as a consequensce, a ~string~ object is similar to an array of characters but has special properties
+  + despite this, using the ~at~ operation (~name.at(1)~) is recommended because it checks whether the requested position is within the valid range of positions for the given string
+** Out-of-Bounds Array Indexes
+- C++ does not check for invalid (*out-of-bounds*) array indexes either at compile time or at run time
+  + if an index is given beyond the end of the array, the computer stores the value in the next memory location past the end of the array, destroying whatever value was previously there
+  + it is entirely the programmer's responsibility to make sure that an array index does not sep off either end of the array
+** Initializing Arrays in Declarations
+- arrays can be initialized in their declarations
+  + to do so, they are enclodes in braces and separated with commas
+  + if too many values are specified, C++ generates a syntax error message
+  + if you specify too few values, the remaining array elements are initialized to ~0~
+  + you are allowed to omid the size of an array when you initialize it in declaration, though this feature is not particularly useful
+- a static array (one that is either globl or declared as static within a block) is initialized once only, when control reaches its declaration
+  + an automatic array (one that is local and not declared as static) is reinitialized each time control reaches its declaration
+** (Lack of) Aggregate Array Operations
+- C++ dose not allow aggregate operations (an operation on a data structure as a whole) on arrays
+- the only thing that can be done to an array as a whole is to pass it as an argument to a function
+** Passing Arrays as Arguments
+- C++ doesn't allow arrays to be passed by value
+  + arrays are /always/ passed by reference
+- when an array is passed as an argument, its *base address* (the memory address of the first element of the array) is sent to the function
+- within a function, an array parameter is simply a variable that is passed the address of the first element of the argument array
+  + you can assign a new address to an array parameter, causing it to refer to a different array, though this is not copying the array's element values
+** Commenting Arrays
+- it is common to use dot-dot notation (~array[i..j~) to discuss ranges of array elemments in a comment
+  + this is /not/ valid C++ syntax
+-
+** Using Typedef with Arrays
+- Typedef can be used to give a name to an array tiype
+  + can be quite handy when dealing with multidimensional arrays
+** Pointer Expressions and Arrays
+- although 0 is the only literal constant of the pointer type, an array name without index brackets is considered to be a constant pointer expression
+- because C++ allows for an array to be assigned to a pointer, it is a common misperception to think that the pointer variable and the array identifier are effectively identical
+  + applying ~sizeof~ to the /pointer/ returns the number of bytes of the pointer, but applying it to the /array/ returns the number of bytes in the array
+- indexing is valid for any pointer expression, not just an array name
+  + it only makes sense if the pointer points to an array
+** C String Operations
+- there are a number of useful operations available in the ~string.h~ header file that can be used
+- C-style strings are /mutable/
+** Converting C Strings to C++ Strings
+- programming in C++ will evelntually lead to using a library that requires C-style strings
+- the c++ string provides a constructor for creating C++ strings from C strings: ~string cppstring(cstring);~
+  + a C++ string can be converted to a C-style string using the ~c_str()~ function
+** Which String Representation to Use
+- in most cases, the programmer should choose the C++ string over the C-style string because it provides safer abstraction
+* Arrays of Records
+- arrays can be made from more than just primitive types; they can be made from structs and objects of classes
+* Special Kinds of Array Processing
+** Subarray Processing
+- if the number of data elements actually stored in an array is less than its declared size, functions that receive array parameters must also receive the number of data items as a parameter
+  + alternatively, the array and the number of actual items in the array can be bound together in a record
+** Indexes with Semantic Content
+- in some instances, an array index has meaning beyond simple position, referred to as having /semantic content/
+* Two-Dimensional Arrays
+- a *two-dimensional array* is used to represent items in a table with rows and columns, provided each item in the table is of the same data type
+- a component in a two-dimensional array is accessed by specifying the row and column indexes of the item in the array
+* Passing Two-Dimensional Arrays as Arguments
+- when a two-dimensional array is passed as a nargument, the base address of the caller's array is sent to the function
+  + you cannot leave off the sizes of both of the array dimensions, though
+  + you can ommit the xize of the first dimension, but not the second
+- The second dimension cannot be ommitted because C++ stores two-dimensional arrays in row order
+  + the function needs the number of columns in order to determine where each subsequent row begins
+  + the number of columns declared for the parameter must be /exactly/ the same as the number of columns in the caller's array
+* Processing Two-Dimensional Arrays
+- the patterns of access by considering four common examples of array processing:
+  1. sum the rows
+  2. sum the columns
+  3. initialize the array to all zeros (or some special value)
+  4. print the array
+** Initialize the Array
+- to initialize a two-dimensional array, the initializer list consists of two items, each of which is itself an initializer list
+- initializing an array, especially a multidimensional array, in its declaration is impractical if the array is large
+  + for a multidimensional array, it can be initialized in a nested for loop structure
+* Another Way of Defining Two-Dimensional Arrays
+- a two-dimensional array can be viewed as an array of arrays
+* Multidemensional Arrays
+- C++ does not place a limit on the number of dimensions that an array can have

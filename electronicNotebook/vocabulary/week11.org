@@ -1,0 +1,8 @@
+#+TITLE: Week 11 - Vocabulary
+- /array/ - a collection of components, all of the same type, ordered on /N/ dimensions (/N/ ≥ 1); each component is accessed by /N/ indexes, each of which represents the component's position within that dimension
+- /base address/ - the memory address of the first element of an array
+- /index/ - the location of a value within an index, enclosed in square brackets
+- /one-dimensional array/ - a structured collection of components, all of the same type, that is given a single name; an array of only one series of indexes
+- /operator overloading/ - providing more than one meaning to an operator when used with a class
+- /out-of-bounds array index/ - an index value that, in C++, is either less than 0 or greater that the array size minus 1
+- /two-dimensional array/ - a collection of components, all of the same type, structured in two dimensions; each component is accessed by a pair of indexes that represent the component's position in each dimension
