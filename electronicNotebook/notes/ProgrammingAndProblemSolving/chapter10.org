@@ -1,0 +1,149 @@
+#+TITLE: Chapter 10 - User-Defined Data Types
+* Built-In Simple Types
+- the ~int~, ~char~, ~bool~ and ~float~ types have a property in common: the domain of each type is made up of individisble, or atomic, data values
+  + data types with this property are called *simple* (or *atomic*) *data types*
+** Numeric Types
+- the integral types ~char~, ~short~, ~int~, and ~long~ represent nothing more than integers of different sizes
+  + the floating-point types ~float~, ~double~ and ~long double~ simply refer to floating point numbers of different sizes
+- in C++, sizes are measured in multiples of the size of a ~char~
+  + by definition, the size of a ~char~ is 1, which means one byte on most—but not all—computers
+- the C++ language guarantees that the following statements are true:
+  + 1 = ~sizeof(char)~ <= ~sizeof(short)~ <= ~sizeof(int)~ <= ~sizeof(long)~
+  + 1 <= ~sizeof(bool)~ <= ~sizeof(long)~
+  + ~sizeof(float)~ <= ~sizeof(double)~ <= ~sizeof(long double)~
+  + a ~char~ is at least 8 bits
+  + a ~short~ is at least 16 bits
+  + a ~long~ is at least 32 bits
+- for numeric data, the size of a data object determines its *range of values*
+- C++ systems provide the header file ~climits~, from which you can determine the maximum and minimum values for your mathine
+  + it edfines the constants ~CHAR_MAX~ and ~CHAR_MIN~, ~SHRT_MIN~ and ~SHRT_MAX~, ~INT_MIN~ and ~INT_MAX~, and ~LONG_MIN~ and ~LONG~MAX~
+  + code designed for portability should check sizes where needed within a program
+- the header file ~cfloat~ defines the constants ~FLT_MAX~ and ~FLOAT_MIN~, ~DBL_MAX~ and ~DBL_MIN~, and ~LDBL_MAX~ and ~LDBL_MIN~
+- the C++ standard adds header files called ~limits.h~ and ~float.h~ that also contain these definitions
+** Characters
+- in C++, the data type ~wchar_t~, rather than ~char~, is used for Unicode characters
+  + ~wchar_t~ can also be used for other, possibly infrequently used, "wide character" sets in addition to Unicode
+- each character has an *external representation*—the way it looks on an I/O device like a printer—and an *internal representation*—the way it is stored inside the computer's memory unit
+- the data type of each variable determines how it is printed
+* User-Defined Simple Types
+- one of the strengths of the C++ language is that it allows programmers to create new data types, tailored to the needs of a particular program
+** The Typedef Statement
+- allows you to introduce a new name for an existing type
+- provides us with a very limited way of defining our own data types
+  + it does not create a new data type at all: it merely creates an additional name for an existing data type
+  + despite this fact, it is a valuable tool for for writing self-documenting programs
+- names of user-defined types obey the same scope rules that apply to identifiers in general
+  + the guidelines that determine where a named constant should be defined also apply to data types
+** Enumeration Types
+- C++ allows the user to define a new simple type by listing (enumerating) the literal values that make up the domain of the type
+  + these literal values must be identifiers (not numbers), are separated by commas, and the list is enclosed in braces
+  + data types defined this way are called *enumeration types*
+- the values in enumeration types are called *enumerators*
+  + they are ordered
+  + applying relations operators to them is like applying them to characters; the relation that is tested is whether an enumeroator "comes befor" or "comes after" in the ordering of the data type
+- the identifiers used as enumerators must follow the rules for any C++ identifer
+*** Assignment
+- variables of the enum type can have an enum value assigned to it, but not an integer, despite the underlying similarity
+  + the precise rule: implicity type coercion is defined from an enumeration type to an integral type but not from an integral type to an enumeration type
+  + this prevents you from accidentally storing an out of range value
+*** Incrementation
+- standard incrementation cannot be done because a variable of an enum type cannot have an integer assigned
+  + during the incrementation process, the enum is implicitly cast to an ~int~, but it does not get cast back to the enum type, leading to an invalid assignment
+- you can escape the type coercion rule by using an explicit type conversion—a type cast: ~enumA = static_cast<EnumType>(enumA + 1);~
+*** Comparison
+- the operation most commonly performed on values of enumeration types is comparison
+  + when you compare two values, their ordering is determined by the order in which you listed the enumerators in the type declaration
+- the values of an enumeration type can be used in a Switch statement because theey are literals and can appear in case labels
+*** Input and Output
+- Stream I/O is defined only for the basic built-in types and not for user-defined enumeration types
+  + values of enumeration types must be input or output indidectly
+- to input values, one strategy is to read a string that spells one of the constants in the enumeratoin type
+  + the idea is to input the string and translate it to one of the literals in the enumeration type by looking at only as many letters as is necessary to determine what the string is
+- enumeration type values cannot be printed directly, either
+  + printing is accomplished using a Switch statement that prints a character string corresponding to the value
+- we use enumeration types to make our programs more readable; they are another way to make the code more self-documenting
+*** Returning a Function Value
+- C++ allows a function retun value to be of any data type—built-in or user-defined—except an aray
+** Named and Anonymous Data Types
+- named types are those that include names for the data type in their declaration
+- C++ also lets us introduce a new type directly in a variable declaration
+  + a new type declared in a variable declaration is called an *anonymous type* because it does not have a name/type identifier associated with it
+- named types, like named constants, make a program more readable, more understandable, and easier to modify
+  + also, declaring a type and declaring a variable are two distinct concepts; it is best to keep them separate
+* Simple Versus Structured Data Types
+- a value in a simple type is a single data item; it cannot be broken down into component parts
+- a *structured data type* is a type in which each value is a /collection/ of component items
+  + the entire collection is given a single name, yet each component can still be acessed individually
+- a structured type gathers together a set of component values an dusually imposes a specific arrangement on them
+  + the method used to access the individual components of a structured type depends on how the components are arranged
+* Records (Structs)
+- in computer science, a *record* is a heterogenous structurud data type
+  + each component of a record is called a *field* of the record, and each field is given a name called the /field name
+- in C++, a field is a structure called a *struct*
+  + the fields of a record are called members of the struct, and each member has a /member name/
+- the reserved word ~struct~ is an abbreviation for /structure/
+- a ~struct~ declaration ends with a semicolon
+- the declaration of a ~struct~ data type just specifies the form that variables of this type will have; it doesn't allocate any space in which to store member values
+  + when variables of the ~struct~'s type are defined, the C++ compiler allocates space within each of the variables that will hold the members
+** Accessing Individual Components
+- use a *member selector*, which is the name of the variable, followed by a dot, and then the member name
+  + this is often called /dot notation/
+** Aggregate Operations on STructs
+- an *aggregate operation* is one that manipulates the ~struct~ as an entire unit
+- the aggregate operations that C++ supports for ~struct~ variables
+| Aggregate Operation                | Supported for Structs?        |
+|------------------------------------+-------------------------------|
+| I/O                                | no                            |
+| Assignment                         | yes                           |
+| Arithmetic                         | no                            |
+| comparison                         | no                            |
+| argument passage                   | yes, by value or by reference |
+| return as a functon's return value | yes                           |
+** More About Struct Declarations
+- two items are optional: the name of the ~struct~ type being declared and the list of variable names between the right brace and the semicolon
+  + the variable list allows you to declare not only a ~struct~ type but also variables of that time
+- if you moit the type name but include the variable list, you create an anonymous type
+** Binding Like Items
+- when data are obviously related, they should be collected into a record
+* Heirarchical Records
+- a component of a record can also be another record
+  + records whose components are themselves records are called *hierarchical records*
+* Unions
+- in C++, a ~union~ is defined to be a struct that holds only one of its members at a time during program execution
+  + the syntzx for declaring a ~union~ type is identical to the syntax for the ~struct~ type, except that the word /union/ is substituted for /struct/
+- at run time, the memory space allocated to a ~union~ does not include room for all of its components
+  + the assumption is that the program will never need the ~union~'s variable in all of it's versions
+  + the purpose of a ~union~ is to conserve memory by forcing several values to use the same memory space, one at a time
+- it is quite reasonable to argue that a ~union~ is not a data structure at all
+  + they are grouped with structured types because of their similarities to ~structs~
+* Pointers
+- are variables that tell where to find somethin else
+  + they contain the address or locations of other variables
+- technically, a *pointer type* is a simple data type that consists of a set of unbound values, each of which address the location of a variable of a given type
+** Pointe Variables
+- the word "pointer" isn't used in declaring pointer variables
+  + the asterisk ~*~ is used instead
+- the asterisk can be placed at the end of data type or the beginning of the variable name
+  + although C++ programmers use both styles, attaching it to the end of the data type name makes it clear that it is a pointer
+- to access a variable that a pointer points to, we use the unary * operator—the /dereference/ or /indirection/ operator
+- *indirect addressing* is when the machine first accesses the pointer and then uses it's contents to locate the desired variable
+- *direct addressing* is when a machine accesses the variable using the variable's name
+- pointers can point to any any type of variable
+- when using a mixture of pointer dereferencing and ~struct~ member selection, parentheses are necessary because the dot operator has higher precedence than the dereference operator
+  + without the parentheses, the expression would be interpreted incorrectly
+  + using parentheses when a pointer points to a structure variable can become tedious
+- in addition to the dot operator, C++ provides another member selection operator: ~->~
+  + the general guideline for choosing between the two member selection operators (dot and arrow) is the following: use the dot operator if the first operand denots a struct,class, or union variable; use the arrow operator if the first operand denotes a pointer to a struct, class, or union variable
+** Pointer Expression
+- in C++, there is only one literal pointer constant: the value 0
+  + The pointer constant 0, called the *NULL* /pointer*,, points to absolutely nothing
+  + the *NULL* pointer is guaranteed to be distinct from any actual memory address
+- instead of using the constant 0, many programmers prefer to use the named constant ~NULL~ that is supplied by the standard header file ~cstddef~
+  + it is an error to dereference the *NULL* pointer as it does not point to anything
+  + instead, it is used only as a special value that a program can test for
+* Reference Types
+- like pointer variables, *reference variables* contain the address of other variables
+- although both reference variables and pointer varables contain addresse of data objects, there are two fundamental differences between them:
+  1. the dereferencing and address-of operators (~*~ and ~&~) are not used to dereference reference variables
+  2. the compiler treats a reference variable as if it were a constant pointer
+- some programmers like to think of a reference variable as an alias for another variable

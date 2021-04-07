@@ -1,0 +1,18 @@
+#+TITLE: Week 10 - Vocabulary
+- /aggregate operation/ - an operation on a datat structure as a whole, as opposed to an operation on an individual component of the data structure
+- /anonymous type/ - a type that does not have an associated type identifier
+- /direct addressing/ - accessing a varaible in one step by using the variable name
+- /enumerator/ - one of the values in the domain of an enumeration type
+- /enumeration type/ - a user-defined data type whose domain is an ordered set of literal values expressed as identifiers
+- /external representation/ - the printable (character) form of a data value
+- /field/ - a component of a record
+- /hierarchical record/ - a record in which at least one of the components is istelf a record
+- /indirect addressing/ - accessing a variable in two steps by first using a pointer that gives the location of the variable
+- /internal representation/ - the form in which a data value is stored inside the memory unit
+- /member selector/ - the expression used to access components of a struct variable; it is formed by using  the struct variable name and the meber name, separated by a dot (period)
+- /named data type/ - those types that include a name for the type in their declaration
+- /range of values/ - the interval within which values of a numeric type must fall, specified in terms of the largest and smallest allowable values
+- /record/ - a structured data type with a fized number of components that are accessed by name; the components must be heterogenous (of different types)
+- /reference type/ - a simple data type consisting of an unbounded set of values, each of which is the address of a variable of a given type, and the only operation defined on a reference variable is initialization, after which every appearance of the variable is implicitly dereferenced; unlike a pointer, a reference cannot be set to 0
+- /simple (atomic) data type/ - a data type in which each value is atomic (indivisible)
+- /structured data type/ - a data type in which each value is a collection of components and whose organization is characterized by the method used to access individual components; the allowable operations on a structured data type include the storage and retrieval of individual components
