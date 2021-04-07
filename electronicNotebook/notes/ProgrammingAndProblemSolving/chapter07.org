@@ -4,8 +4,8 @@
   + it is a control structure for multiway branches
 - *switch expression* is an expression whose value is matched with a label attached to a branch, which determines the branch to be executed
 - the data type of the case statement is coerced, if necessary, to match the type of the switch expression
-- flow of control through a switch statement proceeds from the matching case to all sequentially proceeding one until either a `break` statement or the end of the switch statement is reached
-  + programmers often include a final `break` statement, even if unnecessary, as it makes it easier to add another case label at the end of the switch statement
+- flow of control through a switch statement proceeds from the matching case to all sequentially proceeding one until either a ~break~ statement or the end of the switch statement is reached
+  + programmers often include a final ~break~ statement, even if unnecessary, as it makes it easier to add another case label at the end of the switch statement
 * The Do-While Statement
 - is a looping control structure in which the loop condition is nested at the end (bottom) of the loop
   + this format guarantees that the loop body executes at least once
@@ -21,12 +21,12 @@
     #+end_src
   + be wary of this as it can make the code difficult to read and debug by both oneself and others
 * The Break and Continue Statements
-- the `break` statement is also used with loops, causing an immediate exit from the innermost switch, while, do-while, or for statement in which it appears
-- a rule of thumb is to used `break` statements sparingly and only as a last resort
+- the ~break~ statement is also used with loops, causing an immediate exit from the innermost switch, while, do-while, or for statement in which it appears
+- a rule of thumb is to used ~break~ statements sparingly and only as a last resort
   + loops and statements should exit naturally whenever possible
-- the `continue` statement is only valid in loops, where it terminates the current loop iteration but not the entire loop
+- the ~continue~ statement is only valid in loops, where it terminates the current loop iteration but not the entire loop
   + it causes an immediate jump to the bottom of the loop, skipping the rest of the loop's body
-- the `continue` statement is not used often
+- the ~continue~ statement is not used often
   + its primary purpose is to avoid obscuring the main process of the loop that would result from indenting the process within an if statement
 * Guidelines for Choosing a Looping Statement
 1. if the loop is a simple count-controlled loop, the for statement is a natural
@@ -34,7 +34,7 @@
 2. if the loop is an event-controlled loop whose body should execute at least once, a do-while statement is appropriate
 3. if the loop is an event-controlled loop and nothing is known about the first execution, use a while statement
 4. when in doubt, use a while statement
-5. an infinite loop with `break` statements sometimes clarifies the code but more often reflects an undisciplined loop design; use it only after careful consideration of other structures
+5. an infinite loop with ~break~ statements sometimes clarifies the code but more often reflects an undisciplined loop design; use it only after careful consideration of other structures
 * Additional C++ Operators
 - Combined Assignment Operators
 | Operator | Result              |
@@ -75,11 +75,11 @@
 | sizeof   | size of operand in bytes     | sizeof Expre or sizeof(Type) |
 | ?:       | conditional operator         | Expr1 ? Expr2 : Expr3        |
 ** Assignment Operators and Assignment Expressions
-- the equal sign `=` is the basic assignment operator in C++, though it has many
+- the equal sign ~=~ is the basic assignment operator in C++, though it has many
   + when it is assigned with two operands, it forms an *assignment expression*
 - in C++, any expression becomes an *expression statement* when it is terminated by a semicolon
 ** Increment and Decrement Operators
-- they (`++` and `--`) operate only on variables, not on constants or arbitrary expressions
+- they (~++~ and ~--~) operate only on variables, not on constants or arbitrary expressions
 - using these in the middle of larger expressions is always a bit dangerous
   + makes semantic errors easier, and the code can be confusing to read
 ** Bitwise Operators
@@ -88,11 +88,11 @@
 - implicit type coercion takes place when values of different data types are mixed together
   + instead of relying on implicit type coercion, using an explicit type cast is recommended to show that the type conversion is intentional
 - in C++, the cast operation comes in three forms:
-  1. `intVar = int(floatVar);` - called functional notation
-  2. `intVar = (int)floatVar;` - called prefix notation, the only form available in C
-  3. `intVar = static_cast<int>(floatVar);` - uses a keyword and angle brackets to explicitly document that a cast operation is being performed
+  1. ~intVar = int(floatVar);~ - called functional notation
+  2. ~intVar = (int)floatVar;~ - called prefix notation, the only form available in C
+  3. ~intVar = static_cast<int>(floatVar);~ - uses a keyword and angle brackets to explicitly document that a cast operation is being performed
 - functional notation has one restriction on its use: the data type name must be a single identifier
-  + `myVar = unsigned int(someFloat);` is not allowed
+  + ~myVar = unsigned int(someFloat);~ is not allowed
 - most software engineers now recommend the used of the keyword cast
   + from a documentation viewpoint, it is much esaier to find the keywords within a large program
 ** The sizeof Operator
@@ -119,6 +119,6 @@
 - although operator precedence and associativity dictate the grouping of operators with their operands, C++ does not define the order in which subexpressions are evaluated
 ** Type Coercion in Arithmetic and Relational Expressions
 - if the two operands of an expression are of different data types, then one of them is temporarily *promoted* (or *widened*) to match the data type of the other
-- the result of promoting a `char` to an `int` is compiler dependent
-  + some compilers treat `char` as `unsigned char`, so promotion always yields a nonnegative integer, while, in others, `char` means signed `char`, so promotion of a negative value yields a negative integer
-  + C++ guarantees that each character in a machine's character set is represented as a nonnegative value, so there is no potential issue for any `char` that only represents a `char`
+- the result of promoting a ~char~ to an ~int~ is compiler dependent
+  + some compilers treat ~char~ as ~unsigned char~, so promotion always yields a nonnegative integer, while, in others, ~char~ means signed ~char~, so promotion of a negative value yields a negative integer
+  + C++ guarantees that each character in a machine's character set is represented as a nonnegative value, so there is no potential issue for any ~char~ that only represents a ~char~

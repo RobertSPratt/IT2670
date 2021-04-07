@@ -42,20 +42,20 @@
   + any other variables that the module needs are /local/ and declared within its body
 - the direction of *data flow* for each parameter is documented in as part of the module's interface
 ** Writing Modules as Void Functions
-- a void function looks like the `main` function except that it uses void as its data type
-  + it also does not contain a `return` statement
+- a void function looks like the ~main~ function except that it uses void as its data type
+  + it also does not contain a ~return~ statement
 - a /function definition/ is code that extends from the function heading to the end of the block that is the body of the function
-  + the function heading begins with `void`
+  + the function heading begins with ~void~
 - C++ function definitions can appear in any order
-  + C++ programmers typically put `main` first and any supporting functions after it
+  + C++ programmers typically put ~main~ first and any supporting functions after it
 - /function prototypes/ are statement declarations of a function to infrom the compiler that the function exists later in the code
-  + because C++ requires that identifiers be declared before they are used, function prototypes are placed before the `main` function when it is the first in the code
+  + because C++ requires that identifiers be declared before they are used, function prototypes are placed before the ~main~ function when it is the first in the code
 * An Overview of User-Defined Functions
 ** Flow of Control in Function Calls
 - during compilation, functions are translated in the order in which they physically appear
-  + during execution, control begins at the first statement in `main` and proceeds in logical order
+  + during execution, control begins at the first statement in ~main~ and proceeds in logical order
 - when a function call is encountered, controll passes to the first statement in that functions body
-  + execution is done in logical order until either a `return` statement is reached or no statements remain
+  + execution is done in logical order until either a ~return~ statement is reached or no statements remain
 - functions are considered control structures because they alter the order of execution
 ** Function Parameters
 - a /parameter declaration/ - is code in the function heading that is surrounded by a set of parentheses
@@ -91,13 +91,13 @@
   + when the function returns, its local variables are destroyed
   + everytime a function is called, its local variables start out with their variables undefined
 ** The Return Statement
-- a `return` statement without a value is only function for `void` functions
+- a ~return~ statement without a value is only function for ~void~ functions
   + it causes control to exit the function immediately and return to the caller
 * Parameters
 - when a function is executed, it uses the arguments given to it in the function call
 - C++ supports two kinds of parameters:
-  1. *value parameters* are declared without an ampersand `&` at the end of its data type name and the function receives a copy of the argument's value
-  2. *reference parameters* are declared with an ampersand `&` at the end of its data type name
+  1. *value parameters* are declared without an ampersand ~&~ at the end of its data type name and the function receives a copy of the argument's value
+  2. *reference parameters* are declared with an ampersand ~&~ at the end of its data type name
 - a reference parameters pass the location (memory address) of the caller's argument
 ** Value Parameters
 - when a value parameter is passed to a function, there are two copies of its value: one in calling function and one in the called function

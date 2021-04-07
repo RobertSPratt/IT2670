@@ -8,30 +8,30 @@
   + the computer is said to /read/ the data into variables
 ** Input Streams and the Extraction Operator
 - an /input stream/ can be thought of as a doorway through which characters come into the program from an output device
-- to use input/output (I/O) streams, the preprocessor `#include <iostream>` is needed
-  + its header file contains two data types: `istream` and `ostream`
-  + it also contains the declarations `istream cin;` and `ostream cout;`
-- the extractor operator `>>` takes two operands:
-  1. its left-hand operand is a stream expression (usually `cin`)
+- to use input/output (I/O) streams, the preprocessor ~#include <iostream>~ is needed
+  + its header file contains two data types: ~istream~ and ~ostream~
+  + it also contains the declarations ~istream cin;~ and ~ostream cout;~
+- the extractor operator ~>>~ takes two operands:
+  1. its left-hand operand is a stream expression (usually ~cin~)
   2. its right-hand operand is a variable into which to put the data
-- the `>>` operator can be used several times in a single input statement
+- the ~>>~ operator can be used several times in a single input statement
   + each occurance extracts the next data item from the input stream
 | Data Type of Var in an >> Operation | Valid Input Data                                                                                                |
 |-------------------------------------+-----------------------------------------------------------------------------------------------------------------|
 | char                                | a single printable character other than a blank                                                                 |
 | int                                 | an int literal constant, optionally preceded by a sign                                                          |
 | float                               | an int or float literal constant (possibly in scientific notation), optionally preceded by a plus or minus sign |
-- when putting a number into a `float` variable, a decimal is not needed because an integer will be automatically coerced to a `float` value
-- the `>>` operator skips any leading /whitespace characters/
+- when putting a number into a ~float~ variable, a decimal is not needed because an integer will be automatically coerced to a ~float~ value
+- the ~>>~ operator skips any leading /whitespace characters/
   + these are blanks and certain nonprintable characters such as those that mak the end of a line
 ** The Reading Marker and the Newline Character
 - the /reading marker/ works like a bookmark
   + instead of marking a place in a book, it keeps track of the point in the stream where the computer should continue reading
 - each input line has an invisible end-of-line character (the /newline character/) that tells the computer where one line ends and the next begins
-** Reading Character Data with the `get` Function
-- the `get` function can be used to get the very next character in the input stream without skipping any whitespace characters
-  + it is associated with the `istream` data type and is used with dot notation for its function call
-- `get` function example:
+** Reading Character Data with the ~get~ Function
+- the ~get~ function can be used to get the very next character in the input stream without skipping any whitespace characters
+  + it is associated with the ~istream~ data type and is used with dot notation for its function call
+- ~get~ function example:
 #+begin_src c
 //*******************************************************
 // This program demonstrates the use of the get function.
@@ -50,23 +50,23 @@ int main ()
     return 0;
 }
 #+end_src
-** Skipping Characters with the `ignore` Function
-- the `ignore` function is used to skip (read and discard) characters in the input stream
-  + it takes two arguments, an `int` expression and a `char` value
-  + this tells the computer to skip the next `int` characters or until a value equal to `char` is read, whichever is first
+** Skipping Characters with the ~ignore~ Function
+- the ~ignore~ function is used to skip (read and discard) characters in the input stream
+  + it takes two arguments, an ~int~ expression and a ~char~ value
+  + this tells the computer to skip the next ~int~ characters or until a value equal to ~char~ is read, whichever is first
 - it is most often used to skip the rest of the data on the current input line
 ** Reading String Data
-- there are two options to input a character string into a `string` variable
+- there are two options to input a character string into a ~string~ variable
   1. the extraction operator
-  2. the `getline` function
+  2. the ~getline~ function
 - the extraction operator is widely used for string input, but cannot be used for strings that contain blanks
-- the `getline` function does not use dot notation and takes two arguments: an input stream variable and a string variable
-  + it does not skip whitespace characters and continues until it reaches the newline character (`\n`)
+- the ~getline~ function does not use dot notation and takes two arguments: an input stream variable and a string variable
+  + it does not skip whitespace characters and continues until it reaches the newline character (~\n~)
   + the newline character is "consumed," meaning that the read marker is placed at the start of the next line, if it exists
 * Interactive Input/Output
 - to get data into an interactive program, /input prompts/ explain what the user should enter
 - in many cases, a program should also print out all of the data values typed in by the user to verify that they were entered correctly
-  + this is called `echo printing`
+  + this is called ~echo printing~
 * Noninteractive Input/Output
 - a common example of noninteractive I/O on large computer systems is batch processiong
   + in this, the user and computer do not interact while the program is running
@@ -76,18 +76,18 @@ int main ()
 - the output stored in a fle can be read into another program as input
 ** Using Files
 - four things have to be done to use file I/O:
-  1. request the preprocessor to include the header file `fstream`
+  1. request the preprocessor to include the header file ~fstream~
   2. use declaration statements to declare the file streams to be used
-  3. prepare each file for reading or writing by using a function named `open`
+  3. prepare each file for reading or writing by using a function named ~open~
   4. specify the name of the file stream in each input or output statement
-*** Including the Header File `fstream`
-- the preprocessor directive `#include <fstream>` must be included
-- it defines two data types: `ifstream` and `ofstream`
-- all of the `istream` operations discussed so far are valid fo `ifstream`
-  + the same is true of `ostream` and `ofstream`
+*** Including the Header File ~fstream~
+- the preprocessor directive ~#include <fstream>~ must be included
+- it defines two data types: ~ifstream~ and ~ofstream~
+- all of the ~istream~ operations discussed so far are valid fo ~ifstream~
+  + the same is true of ~ostream~ and ~ofstream~
 ** Run-Time Input of file Names
-- the /open/ function does not expect an argument of type string, but of `C string`
-- to convert a `string` variable to a `C string`, the value-returning function `c_str` can be used
+- the /open/ function does not expect an argument of type string, but of ~C string~
+- to convert a ~string~ variable to a ~C string~, the value-returning function ~c_str~ can be used
 * Input Failure
 - a /fail state/ is when an input operation fails because of invalid data
 - when this happens, the computer does not halt the program or display any error message

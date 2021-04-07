@@ -2,18 +2,18 @@
 
 - the /physical order/ is the order in which the statements appear in a program
 - the /logical order/ is the order in which the programmer wants the statements to be executed in a program
-- in addition to using an `if` statement as a way to make the logical order differ from the pysical order, looping control structures can also be used
+- in addition to using an ~if~ statement as a way to make the logical order differ from the pysical order, looping control structures can also be used
   + a /loop/ executes the same statement (simple or compound) over and over, as long as a condition or set of conditions is satisfied
 - /nested loops/ are loops that are within other loops
 * The While Statement
-- the `while` statement, like the `if` statement, tests a condition
+- the ~while~ statement, like the ~if~ statement, tests a condition
   + it is a looping control structure
 - the statement(s) to be executed each time through the loop is called the /body/ of the loop
   + if the body is a compound statement, it is called a /block/, which allows a group of statements to be executed repeatedly
-- the condition in a `while` statement can be an expression of any simple data type
-  + nearly always, it is a logical expression or, if not, it's value is implicitly coerced to type `bool`
+- the condition in a ~while~ statement can be an expression of any simple data type
+  + nearly always, it is a logical expression or, if not, it's value is implicitly coerced to type ~bool~
   + the body is executed as long as the condition evaluates to true
-- the `if` statement is used to /choose/ a course of action; the `while` is used to /repeat/ a course of action
+- the ~if~ statement is used to /choose/ a course of action; the ~while~ is used to /repeat/ a course of action
 * Phases of Loop Execution
 - the body of a loop is executed in several phases:
   + the moment that the flow of control reaches the first statement inside the loop body is the /loop entry/
@@ -21,7 +21,7 @@
   + berfore each iteration, control is transferred to the /loop test/ at the beginning of the loop
   + when the last iteration is complete, and the flow of control has passed to the first statement following the loop, the program has /exited the loop/; the condition that causes a loop to be exited is the /termination condition/
 - the loop exit occurs at only one point: when the loop test is performed
-  + even if the termination condition becomes satisfied midway through the execution of the loop, the current iteration is completed before the computer checks the `while` expression again
+  + even if the termination condition becomes satisfied midway through the execution of the loop, the current iteration is completed before the computer checks the ~while~ expression again
 * Loops Using the While Statement
 - /count-controlled loops/ are those that repeat a specified number of times
 - /event-controlled loops/ are those that repeat until something happens within the loop
@@ -48,8 +48,8 @@
 *** Flag-Controlled Loops
 - a /flag/ is a Boolean variable that is used to control the logical flow of a program
 - the Boolean variable can be used to record whether the event that controls the process has occurred
-- flags do not need to be initialized to `true`
-  + if so, the NOT operator `!` must be used in the expression
+- flags do not need to be initialized to ~true~
+  + if so, the NOT operator ~!~ must be used in the expression
 ** Looping Subtasks
 - looping by itself does nothing
   + the loop body must perform a task for the loop to accomplish something
@@ -83,7 +83,7 @@
 - require the same initialization as sentinel-controlled loops
 - if the loop doesn't read any data, it can never reach EOF
 *** Flag-Controlled Loops
-- the Boolean flag variable must be initialized to `true` or `false` and then updated when the condition changes
+- the Boolean flag variable must be initialized to ~true~ or ~false~ and then updated when the condition changes
 - the flag variable eseentially remains unchanged until it is time for the loop to end
   + the code detects some condition within the process being repeated that changes the value of the flag
 - because the update depends on what process does, sometimes the process has to design the process before a decision can be on how to update the condition

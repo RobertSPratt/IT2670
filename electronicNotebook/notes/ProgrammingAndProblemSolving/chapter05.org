@@ -12,10 +12,10 @@
 * Conditions and Logical Expressions
 - asking quesions in C++ means making an assertion that is either true or false
   + the computer /evaluates/ the assertion, checking it against some internal condition
-** The `bool` Data Type
-- the `bool` data type is a built-in type consisting of two values: `true` and `false`
-  + `bool` is a reserved word that is short for *Boolean*
-- `true` and `false` are not variable names and they are not strings
+** The ~bool~ Data Type
+- the ~bool~ data type is a built-in type consisting of two values: ~true~ and ~false~
+  + ~bool~ is a reserved word that is short for *Boolean*
+- ~true~ and ~false~ are not variable names and they are not strings
   + they are reserved words
 ** Logical Expressions
 - assertions take the form of /logical expressions/, also called /Boolean expressions/
@@ -33,12 +33,12 @@
 | <=       | less than or equal to    |
 - an expression followed by a relational operator followed by an expression is called a /relational expression/
 - if data types are mixed in a comparison, implicit type coercion takes place
-- if a `bool` value is compared with a numeric value, `false` is coerced to `0` and `true` to `1`
+- if a ~bool~ value is compared with a numeric value, ~false~ is coerced to ~0~ and ~true~ to ~1~
 *** Compare Strings
-- in C++, the `string` type is an example of a class—a programmer-defined type from which declared variables are called objects
-- contained within each `string` object is a character string
-- the `string` class is designed to allow strings to be compared with relational operators
-  + the operands of a relational operator can either be two `string` objects or a `string` object and a string literal
+- in C++, the ~string~ type is an example of a class—a programmer-defined type from which declared variables are called objects
+- contained within each ~string~ object is a character string
+- the ~string~ class is designed to allow strings to be compared with relational operators
+  + the operands of a relational operator can either be two ~string~ objects or a ~string~ object and a string literal
   + both operands cannot be string literals
 - in most cases, the ordering of strings corresponds to alphabetical ordering
   + when they have mixed case letters, ASCII places all uppercase letters before lowercase letters
@@ -53,7 +53,7 @@
 * Nested If Statements
 - a /nested control structure/ is when a control structure is within the code block of another control structure
 - /if-then-else-if/ statements contain /else if/ statements provide general multiway branch statements
-** The Dangling `else`
+** The Dangling ~else~
 - an /else/ is always paired with the closest preceding /if/ that doesn't already have an /else/ paired with it
 #+begin_src c++
 if(average >= 60.0)
@@ -66,24 +66,24 @@ else //belongs to nested if statement, according to the compiler
   + it doesn't logically belong with the nested /if/, but it is attached to it by the compiler
 * Logical Operators
 - in mathematics, the /logical operators/ AND, OR, and NOT take logical expressions as operands
-  + C++ uses `&&` for AND, `||` for OR, and `!` for NOT
+  + C++ uses ~&&~ for AND, ~||~ for OR, and ~!~ for NOT
 - by combining relational operators with logical operators, more complex assertions can be made
 - some programming languages use /full evaluation/ of logical expressoins, which evaluates both subexpressions before applying the logical operator to produce the final result
   + C++ uses *short-circuit* (or *conditional*) *evaluation* of logical expressions, which evaluates expressions from left-to-right and stops evaluating subexpressions as soon as it can determine the value of the entire expression
 ** Precedence of Operators
 - order of precedence, from highest to lowest
-  1. `!` Unary `+` Unary `-`
-  2. `*` `/` `%`
-  3. `+` `-`
-  4. `<` `<=` `>` `>=`
-  5. `==` `!=`
-  6. `&&`
-  7. `||`
-  8. `=`
+  1. ~!~ Unary ~+~ Unary ~-~
+  2. ~*~ ~/~ ~%~
+  3. ~+~ ~-~
+  4. ~<~ ~<=~ ~>~ ~>=~
+  5. ~==~ ~!=~
+  6. ~&&~
+  7. ~||~
+  8. ~=~
 - parentheses can be used to override the order of evaluation in an expression
 ** Relational Operators with Floating-Point Types
 - do /not compare floating-point numbers for equality/
-  + because small errors in the right-most decimal places are likely to arise when calculations are performed on floating-point numbers, two `float` values rarely are exactly equal
+  + because small errors in the right-most decimal places are likely to arise when calculations are performed on floating-point numbers, two ~float~ values rarely are exactly equal
 ** Testing the State of an I/O Stream
 - any of the following can cause an input stream to enter the fail state:
   + invalid input data

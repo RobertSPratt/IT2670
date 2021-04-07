@@ -4,14 +4,14 @@
 - in C++, all subprograms are referred to as /functions/
   + a C++ program is a collection of one or more functions
 - each function performs some particular task, and collectively, they all cooperate to solve the entire problem
-- every C++ program must have a function named `main`
+- every C++ program must have a function named ~main~
   + this is where the execution of a program begins, and always with the first statement
-- statements between the braces (`{}`) of a function are referred to as the /body/ of a function
-- a function that calls another function is known as a `caller` function
+- statements between the braces (~{}~) of a function are referred to as the /body/ of a function
+- a function that calls another function is known as a ~caller~ function
 - a value-returning function returns a single value to its caller
-- when working with C++ programs, the OS is considered to be the caller of the `main` function
-  + it will expect `main` to return a value when it is finished executing
-    - by convention, a value of `0` means everything went well and anything else signifies an error
+- when working with C++ programs, the OS is considered to be the caller of the ~main~ function
+  + it will expect ~main~ to return a value when it is finished executing
+    - by convention, a value of ~0~ means everything went well and anything else signifies an error
 ** Syntax and Semantics
 - a programming language is a set of rules, symbols, and special words used to construct a program
   + in particular, there are rules for both /syntax/ (grammer) and /semantics/ (meaning)
@@ -32,19 +32,19 @@
 - /data type/ - a specific set of data values along with a set of operations on those values
 - /standard/, or /built-in/, /types/ are those that are used so frequently that C++ defines them for the programmer
 - /programmer-defined/, or /user-defined/, /types/ are those that are defined by the programmer and do not come standard in the language
-*** The `char` Data Type
-- the built-in type `char` describes data consisteng of one alphanumeric character--a letter, digit, or special symbol
+*** The ~char~ Data Type
+- the built-in type ~char~ describes data consisteng of one alphanumeric character--a letter, digit, or special symbol
   + each machine uses a particular /character set/, the set of alphanumeric characters it can represent
 - each character is enclosed in single quotes
-  + the C++ compiler needs the quotes to differentiate between a `char` and other data types
+  + the C++ compiler needs the quotes to differentiate between a ~char~ and other data types
 - each character set has a /collating sequence/, a predefined ordering of all characters
-*** The `string` Data Type
+*** The ~string~ Data Type
 - a /string/ is a sequence of characters, such as a word, name, or sentence, enclosed in double quotes
 - a string must be typed entirely on one line
 - a string containing no characters is called the /null string/, or /empty string/
   + a null string is written using two double quotes with nothing (not even spaces) between them
   + it is not equivalent to a string of spaces; it is a special string that contains no characters
-- the `string` data type is not part of the C++ language (not a built-in type)
+- the ~string~ data type is not part of the C++ language (not a built-in type)
   + it is supplied by the C++ /standard library/
 ** Naming Elements: Declarations
 - an identifier can be used to name both constants and variables
@@ -66,7 +66,7 @@
 - /literal value/ (or /literal/) - any constant value written in a program
 - /named constant/ (or /symbolic constant)/ - a location in memory, referenced by an identifier, that contains a data value that cannot be changed
   + an alternative to the literal constant
-- the keyword `const` begins all constant declarations
+- the keyword ~const~ begins all constant declarations
 - many C++ programmers capitalize the entire identifier of a named constant and separate the English words with an underscore
   + this is to let the reader quicly distinguish between variable names and constant names when they appear in the middle of a program
 ** Taking Action: Executable Statements
@@ -76,56 +76,56 @@
 - only one variable can be on the left-hand side of an assignment statement
 - /evaluate/ - to compute a new value by performing a specified set of operators on given values
 *** String Expressions
-- the `string` data type provides a special string operation, called /concatenation/, that uses the `+` operator
+- the ~string~ data type provides a special string operation, called /concatenation/, that uses the ~+~ operator
   + the result is the joining of two strings into a new string containing the characters from both strings
-- concatenation works with named `string` constants, literal strings, and `char` data, as well as with `string` variables
-  + the only restriction is that at least one of the operands of the `+` operator /must/ be a `string` variable or a named constant
-- concatenation works only with values of type `string`
+- concatenation works with named ~string~ constants, literal strings, and ~char~ data, as well as with ~string~ variables
+  + the only restriction is that at least one of the operands of the ~+~ operator /must/ be a ~string~ variable or a named constant
+- concatenation works only with values of type ~string~
   + even though it uses the arithmetic plus sign, values of numeric data types cannot be concatinated
 *** Output
-- in C++, the values of variables and expressions are written out using a special variable named `cout` with the /insertion operator/ (<<)
-  + this displays the contents of whatever is assigned to `cout` to the /standard output device/, usually a monitor/display screen
-- the variable `cout` is predefined in C++ systems to denote an /output stream/
+- in C++, the values of variables and expressions are written out using a special variable named ~cout~ with the /insertion operator/ (<<)
+  + this displays the contents of whatever is assigned to ~cout~ to the /standard output device/, usually a monitor/display screen
+- the variable ~cout~ is predefined in C++ systems to denote an /output stream/
 - the insertion operator takes two operands: a stream variable on it's left side and an expression on its right
-- the identifier `endl` is a special C++ feature called a /manipulator/
+- the identifier ~endl~ is a special C++ feature called a /manipulator/
   + it is used to terminate an output line
 ** Beyond Minimalism: Adding Comments to a Program
 - comments can appear anywhere in a program except in the middle of an identifier, a reserved word, or a literal contant
 - C++ comments come in two forms:
-  1. any sequence of characters enclosed by the `/* */` pair
-  2. any after `//` on a line
+  1. any sequence of characters enclosed by the ~/* */~ pair
+  2. any after ~//~ on a line
 - a comment should appear at the beginning of a program to explain to explain what the program does
   + another good place for comments is in constant and variable declarations, where the comments explain how each identifie is used
 * Program Construction
-- `#include` lines instruct the C++ system to insert into the program the contents of the named files
-- the integer value that the `main` function returns is called the `exit status`
+- ~#include~ lines instruct the C++ system to insert into the program the contents of the named files
+- the integer value that the ~main~ function returns is called the ~exit status~
 ** Blocks (Compound Statements)
-- the body of a function is an example of a `block` (or `compound statement`)
-  + a block is a sequence of zero or more statements enclosed (/delimited/) by a `{}` pair
-- a /null statement/ is an empty statement (just a semicolon `;`)
+- the body of a function is an example of a ~block~ (or ~compound statement~)
+  + a block is a sequence of zero or more statements enclosed (/delimited/) by a ~{}~ pair
+- a /null statement/ is an empty statement (just a semicolon ~;~)
 - terminate each statement /except/ a compound statement (block) with a semicolon
 - a declaration is officially considered to be a statement
   + a declaration can appear wherever an executable statement can
 ** The C++ Preprocessor
-- the `#include` line is not handled by the C++ compiler but by a program known as the /preprocessor/
+- the ~#include~ line is not handled by the C++ compiler but by a program known as the /preprocessor/
 - the preproccer concept is fundamental to C++ and is a program that acts as a filter during the compilation phase
-- a line beginning with a pound sign (`#`) is not considered to be a C++ language statement (and thus is not terminated by a semicolon)
+- a line beginning with a pound sign (~#~) is not considered to be a C++ language statement (and thus is not terminated by a semicolon)
   + it is called a /preprocessor directive/
-- the preprocessor expands an `#include` directive by physically inserting the contents of the named file into the source program
-  + a file whose name appears in an `#include` directive is called a /header file/
+- the preprocessor expands an ~#include~ directive by physically inserting the contents of the named file into the source program
+  + a file whose name appears in an ~#include~ directive is called a /header file/
     - header files contain constant, variable, data type, and function declarations needed by a program
-    - `<>` angle brackets are required around the name of the header file
+    - ~<>~ angle brackets are required around the name of the header file
   + they tell the preprocessor to look for the file in the standard /include directory/
-*** Using the `std` Namespace
-- the header file `iostream` and every standard header file declared all of its identifiers to be in a /namespace/ block called `std`
-- to access the declared identifiers, `using namespace std;` must be included after the headers
+*** Using the ~std~ Namespace
+- the header file ~iostream~ and every standard header file declared all of its identifiers to be in a /namespace/ block called ~std~
+- to access the declared identifiers, ~using namespace std;~ must be included after the headers
 * More About Output
 ** Creating Blank Lines
-- whenever an `endl` is used immediately after another `endl`, it will produce a blank line
+- whenever an ~endl~ is used immediately after another ~endl~, it will produce a blank line
 ** Inserting Blanks Within a Line
 - one technique to control the horizontal spacing of the output is to send extra blank characters (spaces) to the output stream
 ** Special Characters
-- the backslash `\` character precedes special characters (or as a part of special characters)
+- the backslash ~\~ character precedes special characters (or as a part of special characters)
 * Program Entry, Correction, and Execution
 ** Entering a Program
 - /file/ - a named area in secondary storage that is used to hold a collection of data; the collection of data itself
