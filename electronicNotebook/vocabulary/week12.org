@@ -1,0 +1,27 @@
+#+TITLE: Week 12 - Vocabulary
+- /abstract data type/ - a data type whose properties (domain and operations) are specified independently of any particular implementation
+- /abstraction/ - the separation of the logical properties (interface and specification) of an object from its implementation (internal data representation and algorithms)
+- /abstraction barrier/ - the invisible wall around an object that encapsulates implementation details; the wall can be breached only through the public interface
+- /attributes/ - the data represented by an object; its internal state
+- /black box/ - a device whose inner workings remain hidden from view
+- /class/ - a data type in a programming language that is used to represent an abstract data type
+- /class member/ - a component of a class; class members may be either data or functions
+- /class object/ - a variable of a class type
+- /client/ - software that declares and manipulates objects of a particular class
+- /composition/ - the relationship between classes in which one class contains an instance of another class as one of its attributes
+- /constructor/ - an operation that initializes a new instance (variable) of an ADT
+- /data representation/ - the concrete form of data used to represent the abstract values of an abstract data type
+- /design specification/ - the written description of the behavior of a class with respect to its interface
+- /destructor/ - an operation that cleans up the state of an ADT instance just prior to releasing its storage for reuse
+- /encapsulation/ - designing a class so that its attributes are isolated from the actions of external code except through the formal interface
+- /formal interface/ - the components of a class that are externally accessable, which consist of the class's nonprivate attributes and responsibilities
+- /information hiding/ - the encapsulation and hiding of implementation details to keep the user of an abstraction from depending on or incorrectly manipulating these details
+- /instance/ - the current object of a class to which a member function is applied
+- /iterator/ - an operation that allows us to process—one at a time—all the components in an instance of an ADT
+- /mobility/ - the ability of a client to change the value(s) of an object's state (data members) after it is created
+- /modifiability/ - the property of an encapsulated class definition that allows the implementation to be changed without having an effect on code that uses it (except in terms of speed or memory space)
+- /observer/ - an operation that allows us to observe the state of an instance of an ADT without changing it; also known as an accessor
+- /reliable/ - the property of a unit of software that it can be counted on to always operate consistently, according to the specification of its interface
+- /responsibilities/ - the public operations provided by a class for outside use
+- /reuse/ - the ability to include a class in client code, without additional modification to either the class or the client code
+- /transformer/ - an operation that changes the value of the ADT; also known as a mutator

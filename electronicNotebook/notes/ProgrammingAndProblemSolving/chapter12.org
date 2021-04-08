@@ -1,0 +1,104 @@
+#+TITLE: Chapter 12 - Classes and Abstraction
+* Abstract Data Types
+- /abstraction/ is the act of separating the essential qualities of an idea or object from the details of how it works or is composed
+  + the focus is on the /what/ and not the /how/
+- in the world of software design, it is recognized that abstraction is an absolute necessity for managing immense, complex software projects
+- an *abstract data type (ADT) is one whose properties are specified independently from any particular implementation
+  + we concentrate only on its logical properties and defer the details of its implementation
+- to implement an ADT, the programmer must do two things:
+  1. choose a concrete *data representation* of the abstract data, using data types that already exist
+  2. implement each of the allowable operations in terms of program insturctions
+* C++ Classes
+- a *class* is a data type in a programming language that is used to represent an abstract data type
+  + *class members* aer the components of a class that often include not only data but also functions that manipulate that data
+- class variables (more often referred to as *class objects* or *class instances*) are created by using ordinary variable declarations
+  + any software that declares and manipulates objects is called a *client* of the class
+- C++ does not require you to declare public and private class members in a fixed order
+  + by default, class members are private and the word ~public~ is used to "open" them for public access
+- it is common practice to use only data—not functions—as members of a struct
+  + structs can include member functions and private members, but then they might as well be a class
+- most programmers use the struct in the manner that is traditional from C, as away to represent a record structure, and implement ADTs only with classes
+** Implementing the Member Functions
+- in C++, we also refer to the current object as the /instance/, meaning the object to which a member function is /applied/
+** Built-in Operations on Objects
+- most of the built-in operations do not apply to structs or classes
+  + two built-in operations that are valid are ~.~ and ~=~
+** Class Scope
+- class scope applies to the member names within structs, unions, and classes
+  + if the same identifier is declared outside of the class, the two identifiers are unrelated
+* Information Hiding
+- an object has an *abstraction barrier* around it that protects its private data and functions from being accessed by client code
+  + for an object to share information with clients, there must be a gap in the abstraction barrier, called the public interface
+  + electrical engineers work with a similar concept called a *black box*
+- in software design, the black box concept is referred to as *information hiding*
+  + information hiding protects the user of a class from having to know all of the details of its implementation
+  + it also assures the class's implementor that the user cannot directly access any private code or data to compromise the correctness of the implementation
+- most classes exhibit a typical pattern:
+  + the private part contains data
+  + the public part contains the functions that manipulate the data
+- within the body of a ~const~ member function, a compile-time error occurs if any statement tries to modify any of the private instance variables
+  + it is good practice to declare as ~const~ functions that should not modify private data within the object
+** User-Written Header Files
+- if you enclose the name of the header file in angle brackets (~include <iostream>~), then the preprocessor looks for the file in the standard ~include~ directory, which contains all the header files supplied by the C++ system
+- if you enclose the name of a header file in double quotes (~include "file.h"~), then the preprocessor will look for the file in the programmer's current directory
+** Specification and Implementation Files
+- the specification describes the behavior of the data type without reference to its implementation
+- the implementation creates an abstraction barrier by hiding both the concrete data representation and the code for the operations
+- in C++, it is customary (but not required) to package the class declaration and class implementation into separate files
+  + one file,the /specification file/, is a header (~.h~) file containing only the class declaration
+  + the second file, the /implementation file, contains the function definitions for the class member functions
+*** The Specification File
+- should not reveal any implementation details to the user of the class
+  + it should specify /what/ each member function does without disclosing /how/ it does it
+*** The Implementation File
+- must provide function definitions for all the class member functions
+  + it does not repeat documentation from the function prototypes in the specification file
+  + documentation for the programmers who must maintain the code is added in case clarification is necessary
+- both the implementation file and client code must include the specification file
+- in the heading of each function definition, the name of the member function is prefixed by the class name and C++ scope resolution operator (~::~)
+** Compiling and Linking a Multifile Program
+- in C++, each file of a multifile program can be compiled separately and at different times
+  + in this process, the compiler translates each source code file into an object code file
+- although each ~.obj~ file contains machine language code, it is not yet in executable form
+  + the system's linker program brings the objects code together to form an executable program file
+- an effective an important benefit of sepaate compilation is tha tmodifying teh code in just one file requires recompiling only that file
+  + the new ~.obj~ finle is then relinked with the other existing ones
+  + this benefit does not count if the modification impacts code in other files
+* What Is an Object?
+- in OOP, the term /object/ has a very specific meaning
+  + it is a self-contained entity encapsulating data and operations on the data
+  + it has an /internal state/, called *attributes*, and a /set of methods/ (operations, which are implemented by functions in C++)
+- public methods are called *responsibilities* in object-oriented terminology
+* Class Design Principles
+** Encapsulation
+- a primary principle for class design is *encapsulation*
+  + to encapsulate something is to place it into a capsule
+- by itself, the class construct doesn't protect its attributes
+  + instead, we must consciously provide that protection by defining a *formal interface* that limits access from other classes
+- as long as we design the class so that its objects can handle any data that are consistent with the interface, we know that it is a *reliable* unit of software
+- there is no special C++ syntax for encapsulation
+  + encapsulation is achieved by carefully designing the class interface to ensure that its objects have complete control over what information enters and leaves them
+- encapsulation graetly simplifies the work of a programming team beacuaes each class can be developed by a different team member
+  + as long as each class meets its *design specification*, the separate classes can interact safely
+** Abstraction
+- encapsulation is the basis for *abstraction* in programming
+- because encapsulation has provided data abstraction, any changes to a classes code doesn't affect the client code
+** Designing for Modifiability and Reuse
+- apllying the principle of abstraction has two additional benefits: *modifiability* and *reuse*
+  + modifications are undetectable with the exception of applications running faster and requiring less memory
+  + an encapsulated class is self-contained, which means we can import and use it in other applications
+** Mutability
+- an /immutable/ object cannot be changed after it is instantiated
+  + a /mutable/ object has at least one function (method) that allows the client to change the value of a data member in the object
+* Composition
+- *composition* is the relationship in which the internal data of one class includes an object of another class as a data member
+  + C++ does not have (or need) any special language notation for composition
+* UML Diagrams
+** Diagramming a Class
+- a class is represented in UML by a box that's divided into three sections
+  + the top section holds the name for the class
+  + the middle section lists its attributes
+  + the bottom section lists its responsibilities
+** Diagramming Composition of Classes
+- when a class contains an instance of another class, we draw a solid diamond at the end of the line next to the containing class
+  + the class with the solid diamond is composed of (among other things) an instance of the class at the other end of the arrow
