@@ -1,0 +1,9 @@
+#+TITLE: Week 13 - Vocabulary
+
+- /key/ - a member of a class whose value is used to determine the logical and/or physical order of the items in a list
+- /length/ - the number of items in a list; it can vary over time
+- /list/ - a homogeneous collection of elements, with a linear relationship between elements
+- /linear relationship/ - a relationship in which every element except the first has a unique predecessor, and every element except the last has a unique successor
+- /sorting/ - arranging the components of a list into an order
+- /sorted list/ - a list whose predecessor and successor relationships are determined by the centent of the keys of the items in the list; a semantic relationship exists among the keys of the items in the list
+- /unsorted list/ - a list in which data items are placed in no particular order with respect to their content; the only relationships between data elements consist of the list predecessor and successor relationships

@@ -1,0 +1,22 @@
+#+TITLE: Chapter 13 - Array-Based Lists
+* What is a List?
+- a list is a homogenous collection of elements, with a *linear relationship* between elements
+  + /linear/ means that every element in the list except for the first has a unique predecessor, and every element except the last has a unique successor
+  + the number of items in the list, called the *length* of the list, is a property of a list
+- lists can be unsorted or sorted
+  + *unsorted* means their elements may be placed into the list in no particular order
+  + *sorted* means that their placement is determined by a property/detail of the elements
+- when the elments in a sorted list are composite types, one of the members of the structure, called the *key* member, determines their logical (and often physical) order
+  + if a list cannot contain items with duplicate keys, we say that it has unique keys
+* The List as an Abstract Data Type
+** Refining Responsibilities
+- in software development, aranging list items into order is a very common operation and is known as *sorting*
+* Sorted Lists
+** Binary Search
+- a /binary search/ is based on the principle of succesive approximation
+  + the alagorithm divides the list in half and decides which half to look in next
+  + division of the selected portion of the list is repeated until the item is found or it is determined that the item is not in the list
+- keep the following factors in mind when deciding which algorithm to use:
+  1. the length of the list to be searched
+  2. whether the list is already sorted
+  3. the number of times the list is to be searched
