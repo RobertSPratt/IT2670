@@ -1,0 +1,85 @@
+#+TITLE: Chapter 14 - Dynamic Data and Linked Lists
+* Dynamic Data
+- *dynamic variables* are not declared with ordinary variable declarations
+  + they are explicitly allocated and deallocated at execution time by means of two special operators: ~new~ and ~delete~
+- the lifetime of a dynamic variable is the time between the execution of ~new~ and the execution of ~delete~
+- the advantage of being able to create new variables at execution time is that we don't have to create any mode variables than we actually need
+** Allocating Dynamic Data
+- the ~new~ operation has two forms:
+  + allocating a single variable ~new DataType~
+  + allocating an array ~new DataType [IntExpression]~
+- normally, the ~new~ operator does two things:
+  + it creates an uninitialized variable (or array) of the designated type
+  + returns the address of this variable (or base address of the array)
+- variables created by ~new~ are said to reside on the *free store* (or *heap*), a region of memory set aside for dynamic variables
+- a dynamic variable is unnamed and cannot be addressed directly
+  + instead, it must be addressed indirectly though the pointer returned by the ~new~ operator
+** Deleting Dynamic Data
+- dynamic data can (and should) be destroyed at any time during the execution of a program when it is no longer needed
+  + the built-in operator ~delete~ is used to destroy a dynamic variable
+- the ~delete~ operation has two forms:
+  + deleting a single variable ~delete Pointer~
+  + deleting an array ~delete [] Pointer~
+  + the delete operation does not delete teh pointer; it deletes the pointed-to-value
+- when using the ~delete~ operator, you should keep two rules in mind:
+  1. applying ~delete~ ot a ~NULL~ pointed does no harm; the operation simply has no effect
+  2. excepting rule 1, the ~delete~ operator must only be applied to a pointer value that wase obtained previously from the ~new~ operator
+- if you apply ~delete~ to an arbitrary memory address that is not in the free store, the result is undefined
+- it is counterproductive to keep dynamic variables when they are no longer needed—a situation known as *memory leak*
+  + leaving *inaccessible objects* on the free store should be considered a logic error and is a cause of memory leaks
+- a *dangling pointer* is one that points to a variable that no longer exists.
+** Constants and Dynamic Data
+- a pointer can be made constant
+  + we can change the values stored in its location by dereferencing it, but we cannot assign a new value to it
+  + the pointer's location can never become inaccessible, so we can be assured that we are deleting precisely what was originally allocated, preventing a memory leak
+** Sequential Versus Linked Structures
+- when insertions and deletions will occur frequently, a *linked list* works better
+  + a linked list is a collection of items, called /nodes/, that can be scattered about in memory, not necessarily in consecutive memory locations
+- each node tempically represented as a struct, consists of two members:
+  + a component or item member, which contains one of the data values in the list
+  + a link member, which gives the location of the next node in the list
+- a pointer that points to the to the first node in a list is called the *external pointer*
+  + the identifier "head" is sometimes used to refer to the external pointer to a list
+* Creating a Dynamic Linket List: A Walk-Through Example
+- a *dynamic linked list* is a representation of a linked list structure whose nodes are dynamically allocated on the free store, where the link member of each node contains the the memory address of the next dynamic node that uses arrows to point between them
+- we access the list with a pointer variable that holds the address of the first node in the list
+  + this pointer variable is typically named "head" and is called the *external pointer* or *head pointer*
+- data structures built bith in way that expands or contracts as the program executes are called *dynamic data structures*
+- C++ allows /forward/ (or /incomplete/) /declarations/ of structs, classes, and unions
+  + the advantage of using a forward declaration is that we can declare the type of an attribute to be of the struct, class, or union
+* Dynamic Implementation of ADT List
+** Creating an Empty Linked List
+- to create a linked list with no nodes, all that is necessary is to assign the external pointer the value ~NULL~
+  + the appropriate place to do this is typically in the calss constructor
+** Inserting into a Linked List
+- a function for insterting a component into a linked list must have an argument: the item to be inserted
+- the phrase /inserting into a linked list/ could mean inserting the component as the first node, the last node, or into the proper place according to some ordering
+- in the case of an unordered linked list, the logical place to insert an item as at the beginning of the list because this place is directly accessible via the external pointer
+  + this is in contrast to an array-based list, which would require that the entire array be shifted
+** Traversals of a Linked List
+- traversing a linked list is going through the list node-by-node
+** Deleting from a Linked List
+- to delete an existing node from a linked list, we must loop through the nodes until we find the node we want to delete
+- to delete a node, the previous node's link is changed to point to the destination of the node's link, removing the current node from the sequence
+* Destructors and Copy-Contructors
+- classes whose objects manipulate dynamic data on he free store should provide three special operations:
+  + a /construtor/
+  + a /destructor/
+  + a /copy-constructor/
+** Destructor
+- the purpose of the destructor is to deallocate the nodes in a dynamic linked list when a ~List~ class object is destroyed
+    without a destructor, the linked list would be left behind on the free store, still allocated but inaccessible
+** Shallow Versus Deep Copying
+- a *shallow copy* operation is when the pointer is copied but the pointed-to data is not
+  + it is perfectly fine if none of the class members are pointers
+  + shallow copying class members that are pointers can lead to unexpected results
+- a *deep copy* operation is one that duplicates not only the calss members but also the pointed-to data
+** Copy-Constructor
+- the issue of deep vesus shallow copying can crop up when one class object initializes another
+  + by default, C++ performs such initializations using shallow copy semantics
+- To handle this situation, C++ supports a special kind of constructor known as a copy-constructor
+  + it has the following prototype: ~SomeClass(const SomeClass& someObject);~
+- without a copy-constructor, if a class object initializes another class object with one of it's properties as a parameter and the initialized object is passed to the destructor, the property will be destoryed.
+  + by providing a copy-constructor, we ensure deep copying of an argument to a parameter whenever a pass by value occurs
+- if a copy-constructor is present, the default methor of initialization (member-by-member copying) is circumvented
+  + the copy-constructor is implicitly invoked whenever one object is initialized by another

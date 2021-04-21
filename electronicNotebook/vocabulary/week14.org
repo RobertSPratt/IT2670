@@ -1,0 +1,15 @@
+#+TITLE: Week 14 - Vocabulary
+
+- /dangling pointer/ - a pointer that points to a variable that
+- /deep copy/ - an operation that not only copies one class object to another but also makes copies of any pointed-to data
+- /dynamic data/ - variables created during execution of a program by means of special operations; in C++, these are ~new~ and ~delete~
+- /dynamic data structure/ - a data structure that can expand and contract during execution
+- /dynamic linked list/ - a linked list composed of dynamically allocated nodes that are linked together by pointers
+- /external pointer/ - a pointer that points to the first node in a linked list
+- /external (head) pointer/ - a pointer variable that points to the first node in a dynamic linked list
+- /free store/ - (/heap/) a pool of memory locations reserved for allocation and deallocation of dynamic data
+- /inaccessible object/ - a dynamic variable on the free store without any pointer pointing to it
+- /linked list/ - a list in which the order of the components is determined by an explicit link member in each node, rather than by the sequential order of the components in memory
+- /memory leak/ - the loss of available memory space that occurs when dynamic data is allocated but never deallocated
+- /node/ - an item in a linked list
+- /shallow copy/ - an operation that copies one class object to another without copying any pointed-to data
