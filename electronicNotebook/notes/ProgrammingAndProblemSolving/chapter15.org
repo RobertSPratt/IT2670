@@ -1,0 +1,74 @@
+#+TITLE: Chapter 15 - Inheritance, Polymorphism, and Object-Oriented Design
+* Object-Oriented Programming
+- the process of implementing a functional decomposition is often called *structured* (or *procedural*) *programming*
+- functional decomposition is satisfactory for programming in the small but often does not "scale up" well for programming in the large due to two limitations:
+  1. the technique yields an inflexible structure
+  2. it does lend itself easily to reuse
+- a methodology that often works better for creating large software systems is object-oriented design (OOD)
+  + the process of implementing object-oriented design is called *object-oriented programming*
+- in OOD and OOP, data plays a leading role
+  + the primary contribution of algorithms is to implement the operations on objects
+- /object-oriented programming languages/ have facilities that support:
+  + data abstraction
+  + inheritance
+  + dynamic binding
+* Inheritance
+- the inheritance relationship can be viewed as an is-a relationship
+  + as opposed to the principle of composition that can be viewed as a has-a relations
+** Deriving One Class from Another Class
+#+begin_src c++
+class ExpandedEntry : public Entry
+{
+...
+}
+#+end_src
+- the above states that ~ExpandedEntry~ is derived from ~Entry~
+  + ~public~ declares that ~Entry~ is a public base class
+- C++ uses the terms *base class* and *derived class* instead of *superclass* and *subclass*
+** Implementation of the ~Expanded Entry~ Class
+- with C++, /inheritance does not imply unrestricted access/
+  + although a derived class inherits the members of its base class, both private and public, it cannot directly access the private members of the base class
+** Constructor Execution Order
+- Given a class ~Y~, if ~Y~ is derived from base class ~X~:
+  1. the base class (~X~) constructor is executed first
+  2. constructors for ~Y~'s member objects (if any) are then executed
+  3. the body of ~Y~'s constructor is executed last
+* Dynamic Binding and Virtual Functions
+- /dynamic binding/ means "dynamic binding of an operation to an object"
+- the binding of an operations to an object must occur at run time becuase the compiler cannot always determine the type of an object
+  + one such situation involves passing class objects as arguments
+- the basic C++ rule for passing class objects as arguments is that the argument and its corresponding parameter must be of identical types
+  + with inheritance, C++ relaxes this rule to a certain extent
+** Virtual Functions
+- declaring a member function to be ~virtual~ instructs the complier to generate code that guarantees *dynamic* (run-time) *binding* of a function to an object
+  + the determination of which function to call is postponed until run time
+- if a class object is passed by reference to some function, and if the body of that function contains a statement ~param.MemberFunc(...);~ then:
+  1. if ~MemberFunc~ /is not/ a virtual function, the type of the parameter determines which function to call (static binding is used)
+  2. if ~MemberFunc~ /is/ a virtual function, teh type of the argument determines which function to call (dynamic binding is used)
+- dynamic binding ensures that each object knows how to print itself and that the appropriate version is invoked
+  + in OOP terminology, this is a *polymorphic operation*—an operation that has multiple meanings depending on the type of the objcet that responds to it at run time
+- some key points when using virtual functions in C++:
+  1. to achieve dynamic binding, you must use pass by reference when passing a class object ot a function; if you use pass by value, the compiler does not use the ~virtual~ mechanism, and instead member slicing and static binding occur
+  2. in the declaration of a virtual function, the word ~virtual~ appears only in the base class, not in a ny derived class
+  3. if a bass class declares a virtual function, it must implement that function, even if the body is empty
+  4. a derived class is not required to provide its own reimplementation of a virtual function; in this case, the bass class's version is used by default
+  5. a derived class cannot redefine the function return type of a virtual function
+* Object-Oriented Design
+- OOD is based on the philosophy that programs are easier to write and understand if the major objects in a program correspond closely to the objects in the problem domain
+  + the programmer then focuses on how best to represent real-world objects of the problem domain using the data types and operations provided by the programming language (the solution domain)
+- a straightforward, four-stage process that captures the essence of OOD:
+  + /brainstorming/ - the stage in which we make the first pass at identifying the objects in the problem; we freely list every possible object we can think of, in both the problem and solution domains
+  + /filtering/ - we review the objects proposed in the brainstorming stage and look for objects that are redundant or that can be combined, perhaps noticing some that are missing; each object that survives the filtering stage becomes a class in the solution and is recorded on the /classes, responsibilities, and collaborations (CRC) card/
+  + /scenario exploration/ - the behavior of each class is determined; because a class is responsible for its own behavior, we call these behaviors /responsibilities/
+  + /responsibility algorithm design/ - we write the algorithms for each of the responsibilities outlined on the CRC cards; this stage is very similar to what happens in functional decompositions, except that the responsibility algorithms are often so simple that further decomposition isn't necessary
+** Brainstorming
+- in the context of object-oriented problem solving, brainstorming is a group activity designed to product a list of candidate classes to be used to solve a particular problem
+** Filtering
+- produces a smaller list of classes that we believe are sufficient to solve the problem
+  + we may recognize alternative approaches and choose one set of objects over another
+** Scenario Exploration
+- the goal of the scenario exploration phase is to assign *responsibilities* to each class
+  + these are the tasks that each class must perform
+- we distinguish two types of responsibilities: what a class must know about itself (knowledge) and what a class must be able to do (behavior)
+  + encaapsulation is a key to abstraction, but each class has the responsibility of providing the information about itself that is needed by class with which it *collaborates*
+- a *scenarie exploration* is a sequence of steps that describes an interaction to satisfy a goal

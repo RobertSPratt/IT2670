@@ -1,0 +1,15 @@
+#+TITLE: Week 15 - Vocabulary
+
+- /base class (superclass)/ - a class that is extended by one or more derived classes (its subclasses)
+- /brainstorming/ - the process of freely listing all the objects that may contribute to the solution of a problem
+- /collaborations/ - the interactions between classes that are needed to solve a problem
+- /derived class (subclass)/ - a class that is derived from another class (its base class)
+- /dynamic binding/ - the run-time determination of which function to call for a particular object
+- /filtering/ - the process of reviewing the initial list of objects to identify duplicate and unnecessary objects
+- /inheritance/ - a mechanism by which one class (a derived class) acquires the properties—the data and operations—of another class (its base class)
+- /object-oriented programming/ - the use of data abstraction, inheritance, and dynamic binding to construct programs that are collections of interacting objects
+- /polymorphic operation/ - an operation that has multiple meanings depending on the type of the object to which it is bound at run time
+- /responsibilities/ - the operations associated with a class of objects
+- /scenario exploration/ - a walkthrough of the interactions between a client (the user or an object) and any objects (including the main application) with which the client must collaborate to achieve a particular goal
+- /static binding/ - the compile-time determination of which function  to call for a particular object
+- /structured (procedural) programming/ - the construction of programs that are collections of interacting functions or procedures
